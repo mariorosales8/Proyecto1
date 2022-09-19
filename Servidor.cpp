@@ -45,10 +45,13 @@ int main(){
     }
 
     for(int i=0; i < 3; i++){
+        bzero(buffer, 1024);
         if(read(new_socket, buffer, 1024) < 0)
             error("Error al leer");
         cout << buffer << endl;
-        cin >> mensaje;
+        if(i == 0)
+            cin.ignore();
+        getline(cin, mensaje);
         if(send(new_socket, mensaje.c_str(), strlen(mensaje.c_str()), 0) < 0){
             error("Error al escribir");
         }
