@@ -1,3 +1,4 @@
+#include "include.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,18 +6,19 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <iostream>
+#include <pthread.h>
+#include <semaphore.h>
 
 using namespace std;
-
-void error(const char*);
+static int puerto, server_fd, new_socket;
+static struct sockaddr_in address;
+static int addrlen = sizeof(address);
+static char buffer[1024];
+static string mensaje;
+sem_t semaforo;
 
 int main(){
-    int puerto, server_fd, new_socket;
-    struct sockaddr_in address;
-    int addrlen = sizeof(address);
-    char buffer[1024];
-    string mensaje;
-    
+    pthread_t hiloRead, hiloSend;
     cout << "Puerto del servidor: ";
     cin >> puerto;
     
@@ -44,18 +46,10 @@ int main(){
         error("Error al aceptar al cliente");
     }
 
-    for(int i=0; i < 3; i++){
-        bzero(buffer, 1024);
-        if(read(new_socket, buffer, 1024) < 0)
-            error("Error al leer");
-        cout << buffer << endl;
-        if(i == 0)
-            cin.ignore();
-        getline(cin, mensaje);
-        if(send(new_socket, mensaje.c_str(), strlen(mensaje.c_str()), 0) < 0){
-            error("Error al escribir");
-        }
-    }
+    pthread_create(&hiloRead, NULL, *recibe, NULL);
+    pthread_create(&hiloSend, NULL, *envia, NULL);
+    pthread_join(hiloRead, NULL);
+    pthread_join(hiloSend, NULL);
 
     close(new_socket);
     shutdown(server_fd, SHUT_RDWR);
@@ -69,4 +63,24 @@ int main(){
 void error(const char* error){
     cout << error << endl;
     main();
+    exit(0);
+}
+
+void *recibe(void* args){
+    for(int i=0; i < 3; i++){
+        bzero(buffer, 1024);
+        if(read(new_socket, buffer, 1024) < 0)
+            error("Error al leer");
+        cout << buffer << endl;
+    }
+}
+void *envia(void* args){
+    cin.ignore();
+    for(int i=0; i < 3; i++){
+        getline(cin, mensaje);
+        if(send(new_socket, mensaje.c_str(),
+                strlen(mensaje.c_str()), 0) < 0){
+            error("Error al escribir");
+        }
+    }
 }

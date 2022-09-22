@@ -1,3 +1,4 @@
+#include "include.h"
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
@@ -9,11 +10,13 @@ using namespace std;
 
 void error(const char*);
 
+static string ip, mensaje;
+static int puerto, sock, client_fd;
+static struct sockaddr_in serv_addr;
+static char buffer[1024];
+
 int main(){
-    string ip, mensaje;
-    int puerto, sock, client_fd;
-    struct sockaddr_in serv_addr;
-    char buffer[1024];
+    pthread_t hiloRead, hiloSend;
     
     cout << "IP del servidor: ";
     cin >> ip;
@@ -35,14 +38,12 @@ int main(){
     if(client_fd < 0)
         error("No se pudo conectar al servidor");
 
-    cin.ignore();
-    for(int i=0; i < 3; i++){
-        getline(cin, mensaje);
-        send(sock, mensaje.c_str(), strlen(mensaje.c_str()), 0);
-        bzero(buffer, 1024);
-        read(sock, buffer, 1024);
-        cout << buffer << endl;
-    }
+    pthread_create(&hiloRead, NULL, *recibe, NULL);
+    pthread_create(&hiloSend, NULL, *envia, NULL);
+    pthread_join(hiloRead, NULL);
+    pthread_join(hiloSend, NULL);
+    
+
 
     close(client_fd);
 
@@ -55,4 +56,24 @@ int main(){
 void error(const char* error){
     cout << error << endl;
     main();
+    exit(0);
+}
+
+void *recibe(void* args){
+    for(int i=0; i < 3; i++){
+        bzero(buffer, 1024);
+        if(read(sock, buffer, 1024) < 0)
+            error("Error al leer");
+        cout << buffer << endl;
+    }
+}
+void *envia(void* args){
+    cin.ignore();
+    for(int i=0; i < 3; i++){
+        getline(cin, mensaje);
+        if(send(sock, mensaje.c_str(),
+                strlen(mensaje.c_str()), 0) < 0){
+            error("Error al escribir");
+        }
+    }
 }
