@@ -38,7 +38,7 @@ int main(){
     if(client_fd < 0)
         error("No se pudo conectar al servidor");
 
-    pthread_create(&hiloRead, NULL, *recibe, NULL);
+    pthread_create(&hiloRead, NULL, *lee, NULL);
     pthread_create(&hiloSend, NULL, *envia, NULL);
     pthread_join(hiloRead, NULL);
     pthread_join(hiloSend, NULL);
@@ -59,21 +59,23 @@ void error(const char* error){
     exit(0);
 }
 
-void *recibe(void* args){
-    for(int i=0; i < 3; i++){
+void *lee(void* args){
+    while(1){
         bzero(buffer, 1024);
         if(read(sock, buffer, 1024) < 0)
             error("Error al leer");
         cout << buffer << endl;
     }
+    return NULL;
 }
 void *envia(void* args){
     cin.ignore();
-    for(int i=0; i < 3; i++){
+    while(1){
         getline(cin, mensaje);
         if(send(sock, mensaje.c_str(),
                 strlen(mensaje.c_str()), 0) < 0){
             error("Error al escribir");
         }
     }
+    return NULL;
 }

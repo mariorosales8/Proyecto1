@@ -1,3 +1,4 @@
 void error(const char*);
-void *recibe(void*);
+void *lee(void*);
 void *envia(void*);
+void enviaACliente(int);

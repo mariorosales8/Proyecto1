@@ -8,6 +8,7 @@
 #include <iostream>
 #include <pthread.h>
 #include <semaphore.h>
+#include <list>
 
 using namespace std;
 static int puerto, server_fd, new_socket;
@@ -19,9 +20,11 @@ sem_t semaforo;
 
 int main(){
     pthread_t hiloRead, hiloSend;
-    cout << "Puerto del servidor: ";
-    cin >> puerto;
+    list<int> clientes;
     
+    cout << "Puerto del servidor: " << flush;
+    cin >> puerto;
+
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if(server_fd == 0){
         error("Error al crear el socket");
@@ -39,21 +42,23 @@ int main(){
     if(listen(server_fd, 3) < 0){
         error("Error en el listen");
     }
-    
-    new_socket = accept(server_fd, (struct sockaddr*)&address,
-                        (socklen_t*)&addrlen);
-    if(new_socket < 0){
-        error("Error al aceptar al cliente");
-    }
 
-    pthread_create(&hiloRead, NULL, *recibe, NULL);
-    pthread_create(&hiloSend, NULL, *envia, NULL);
-    pthread_join(hiloRead, NULL);
-    pthread_join(hiloSend, NULL);
+    pthread_create(&hiloSend, NULL, *envia, (void*)&clientes);
+
+    while(1){
+        new_socket = accept(server_fd, (struct sockaddr*)&address,
+                            (socklen_t*)&addrlen);
+        if(new_socket < 0){
+            error("Error al aceptar al cliente");
+        }else{
+            clientes.push_back(new_socket);
+            pthread_t hiloRead;
+            pthread_create(&hiloRead, NULL, *lee, (void*)&new_socket);   
+        }
+    }
 
     close(new_socket);
     shutdown(server_fd, SHUT_RDWR);
-
     
     
     return 0;
@@ -66,21 +71,28 @@ void error(const char* error){
     exit(0);
 }
 
-void *recibe(void* args){
-    for(int i=0; i < 3; i++){
+void *lee(void* args){
+    int new_socket = *(int*)args;
+    while(1){
         bzero(buffer, 1024);
         if(read(new_socket, buffer, 1024) < 0)
             error("Error al leer");
         cout << buffer << endl;
     }
+    return NULL;
 }
 void *envia(void* args){
+    list<int>* clientes = (list<int>*)args;
     cin.ignore();
-    for(int i=0; i < 3; i++){
+    while(1){
         getline(cin, mensaje);
-        if(send(new_socket, mensaje.c_str(),
-                strlen(mensaje.c_str()), 0) < 0){
-            error("Error al escribir");
+        cout << (*clientes).size() << endl;
+        for(int cliente : *clientes){
+            if(send(cliente, mensaje.c_str(),
+                    strlen(mensaje.c_str()), 0) < 0){
+                error("Error al escribir");
+            }
         }
     }
+    return NULL;
 }
