@@ -11,10 +11,17 @@ TEST_CASE("Mensaje", "Mensaje"){
     m.setTipo("Prueba");
     m.setAtributo("nombre", "Juan");
     m.setAtributo("edad", "20");
+    REQUIRE(m.esValido());
     REQUIRE(m.getTipo() == "Prueba");
     REQUIRE(m.getAtributo("nombre") == "Juan");
+    REQUIRE(m.getAtributo("ninguno") == "");
     
     m = Mensaje(m.toString());
+    REQUIRE(m.esValido());
     REQUIRE(m.getTipo() == "Prueba");
     REQUIRE(m.getAtributo("nombre") == "Juan");
+    REQUIRE(m.getAtributo("ninguno") == "");
+
+    m = Mensaje("Juan, 20 años");
+    REQUIRE(!m.esValido());
 }

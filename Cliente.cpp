@@ -1,20 +1,23 @@
 #include "include.h"
-#include "Mensaje.cpp"
+#include "ClasesCliente.h"
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <iostream>
+#include <pthread.h>
 
 using namespace std;
 
 int sock;
 bool desconectado;
+ControlCliente control;
 
 
 int main(){
     while(1){
+        desconectado = true;
         string ip;
         int puerto, client_fd;
         struct sockaddr_in serv_addr;
@@ -45,8 +48,17 @@ int main(){
             cout << "No se pudo conectar con el servidor" << endl;
             continue;
         }
-        desconectado = false;
 
+        while(desconectado){
+            cout << "Nombre de usuario: " << flush;
+            string nombreJSON = control.ponNombre();
+            if(send(sock, nombreJSON.c_str(),
+                    strlen(nombreJSON.c_str()), 0) <= 0){
+                cout << "Error al identificarse" << endl;
+                continue;
+            }
+            desconectado = false;
+        }
 
         pthread_create(&hiloRead, NULL, *lee, NULL);
         pthread_create(&hiloSend, NULL, *envia, NULL);
@@ -74,7 +86,7 @@ void *lee(void* args){
 
 void *envia(void* args){
     string mensaje;
-    cin.ignore();
+    //cin.ignore();
     while(1){
         getline(cin, mensaje);
         if(desconectado){

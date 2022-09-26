@@ -1,5 +1,5 @@
 #include "include.h"
-#include "Mensaje.cpp"
+#include "ClasesServidor.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,12 +8,12 @@
 #include <netinet/in.h>
 #include <iostream>
 #include <pthread.h>
-#include <semaphore.h>
 #include <list>
 
 using namespace std;
 
-list<int> clientes;
+list<Usuario*> clientes;
+ControlServidor control;
 
 int main(){
     while(1){
@@ -54,9 +54,9 @@ int main(){
             if(new_socket < 0){
                 cout << "No se pudo aceptar al cliente" << endl;
             }else{
-                clientes.push_back(new_socket);
+                Usuario cliente = Usuario(new_socket);
                 pthread_t hiloRead;
-                pthread_create(&hiloRead, NULL, *lee, (void*)&new_socket);   
+                pthread_create(&hiloRead, NULL, *lee, (void*)&cliente);
             }
         }
     }
@@ -67,23 +67,36 @@ int main(){
 
 void *lee(void* args){
     char buffer[1024];
-    int new_socket = *(int*)args;
+    Usuario u = *(Usuario*)args;
+    Usuario *cliente = &u;
+
+    if(read(cliente->getSocket(), buffer, 1024) <= 0){
+        pthread_exit(NULL);
+    }
+    if(control.ponNombre(buffer, cliente)){
+        clientes.push_back(cliente);
+    }else{
+        close(cliente->getSocket());
+        pthread_exit(NULL);
+    }
+
     while(1){
         bzero(buffer, 1024);
-        if(read(new_socket, buffer, 1024) <= 0)
-            desconectar(new_socket);
+        if(read(cliente->getSocket(), buffer, 1024) <= 0)
+            desconectar(cliente);
         cout << buffer << endl;
     }
     return NULL;
 }
 void *envia(void* args){
-    list<int>* clientes = (list<int>*)args;
+    list<Usuario*>* clientes = (list<Usuario*>*)args;
     string mensaje;
     cin.ignore();
+
     while(1){
         getline(cin, mensaje);
-        for(int cliente : *clientes){
-            if(send(cliente, mensaje.c_str(),
+        for(Usuario *cliente : *clientes){
+            if(send(cliente->getSocket(), mensaje.c_str(),
                     strlen(mensaje.c_str()), 0) <= 0){
                 cout << "Error al enviar el mensaje" << endl;
             }
@@ -92,7 +105,7 @@ void *envia(void* args){
     return NULL;
 }
 
-void desconectar(int socket){
-    clientes.remove(socket);
+void desconectar(Usuario *cliente){
+    clientes.remove(cliente);
     pthread_exit(NULL);
 }

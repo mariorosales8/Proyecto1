@@ -1,6 +1,5 @@
 #include <json/json.h>
 #include <map>
-#include <iostream>
 
 using namespace Json;
 using namespace std;
@@ -67,6 +66,14 @@ public:
             json[llave] = atributo;
         }
         return writer.write(json);
+    }
+
+    /**
+     * @brief Comprueba que el mensaje sea válido
+     * @return true si el tipo es distinto de vacío, false en otro caso
+     */
+    bool esValido(){
+        return tipo != "";
     }
 
 };
