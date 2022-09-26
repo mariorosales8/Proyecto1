@@ -1,17 +1,62 @@
 \hypertarget{Cliente_8cpp}{}\doxysection{Referencia del Archivo Cliente.\+cpp}
 \label{Cliente_8cpp}\index{Cliente.cpp@{Cliente.cpp}}
+{\ttfamily \#include \char`\"{}include.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}JSON.\+cpp\char`\"{}}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 \doxysubsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}{lee}} (void $\ast$args)
+\item 
+void $\ast$ \mbox{\hyperlink{Cliente_8cpp_acd4faa94985729653880790cedf52e48}{envia}} (void $\ast$args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}{sock}}
+\item 
+bool \mbox{\hyperlink{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}{desconectado}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Cliente_8cpp_acd4faa94985729653880790cedf52e48}\label{Cliente_8cpp_acd4faa94985729653880790cedf52e48}} 
+\index{Cliente.cpp@{Cliente.cpp}!envia@{envia}}
+\index{envia@{envia}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{envia()}{envia()}}
+{\footnotesize\ttfamily void$\ast$ envia (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}\label{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}} 
+\index{Cliente.cpp@{Cliente.cpp}!lee@{lee}}
+\index{lee@{lee}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{lee()}{lee()}}
+{\footnotesize\ttfamily void$\ast$ lee (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{Cliente.cpp@{Cliente.cpp}!main@{main}}
 \index{main@{main}!Cliente.cpp@{Cliente.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}\label{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}} 
+\index{Cliente.cpp@{Cliente.cpp}!desconectado@{desconectado}}
+\index{desconectado@{desconectado}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{desconectado}{desconectado}}
+{\footnotesize\ttfamily bool desconectado}
+
+\mbox{\Hypertarget{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}\label{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}} 
+\index{Cliente.cpp@{Cliente.cpp}!sock@{sock}}
+\index{sock@{sock}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{sock}{sock}}
+{\footnotesize\ttfamily int sock}
 

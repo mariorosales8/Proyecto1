@@ -82,19 +82,74 @@ $(document).ready(function(){initNavTree('Cliente_8cpp.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Funciones</a>  </div>
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia del Archivo Cliente.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="include_8h_source.html">include.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JSON_8cpp.html">JSON.cpp</a>&quot;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Cliente_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc816673373e9239e089e2a3c7e1de38"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Cliente_8cpp.html#abc816673373e9239e089e2a3c7e1de38">lee</a> (void *args)</td></tr>
+<tr class="separator:abc816673373e9239e089e2a3c7e1de38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd4faa94985729653880790cedf52e48"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Cliente_8cpp.html#acd4faa94985729653880790cedf52e48">envia</a> (void *args)</td></tr>
+<tr class="separator:acd4faa94985729653880790cedf52e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a5903d0b282fc5eae503de618f896b5e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Cliente_8cpp.html#a5903d0b282fc5eae503de618f896b5e1">sock</a></td></tr>
+<tr class="separator:a5903d0b282fc5eae503de618f896b5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a956ae09011f55fc0490af6041a8f6aa9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Cliente_8cpp.html#a956ae09011f55fc0490af6041a8f6aa9">desconectado</a></td></tr>
+<tr class="separator:a956ae09011f55fc0490af6041a8f6aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de las funciones</h2>
+<a id="acd4faa94985729653880790cedf52e48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd4faa94985729653880790cedf52e48">&#9670;&nbsp;</a></span>envia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* envia </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc816673373e9239e089e2a3c7e1de38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc816673373e9239e089e2a3c7e1de38">&#9670;&nbsp;</a></span>lee()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* lee </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -106,6 +161,35 @@ Funciones</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a956ae09011f55fc0490af6041a8f6aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a956ae09011f55fc0490af6041a8f6aa9">&#9670;&nbsp;</a></span>desconectado</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool desconectado</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5903d0b282fc5eae503de618f896b5e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5903d0b282fc5eae503de618f896b5e1">&#9670;&nbsp;</a></span>sock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sock</td>
         </tr>
       </table>
 </div><div class="memdoc">

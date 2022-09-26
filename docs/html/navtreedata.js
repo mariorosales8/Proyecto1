@@ -26,11 +26,21 @@ var NAVTREE =
 [
   [ "Chat", "index.html", [
     [ "README", "md_README.html", null ],
+    [ "Clases", "annotated.html", [
+      [ "Lista de clases", "annotated.html", "annotated_dup" ],
+      [ "Índice de clases", "classes.html", null ],
+      [ "Miembros de las clases", "functions.html", [
+        [ "Todo", "functions.html", null ],
+        [ "Funciones", "functions_func.html", null ]
+      ] ]
+    ] ],
     [ "Archivos", "files.html", [
       [ "Lista de archivos", "files.html", "files_dup" ],
       [ "Miembros de los ficheros", "globals.html", [
         [ "Todo", "globals.html", null ],
-        [ "Funciones", "globals_func.html", null ]
+        [ "Funciones", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "defines", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

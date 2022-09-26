@@ -1,10 +1,11 @@
 #include "include.h"
+#include "Mensaje.cpp"
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
