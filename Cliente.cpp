@@ -1,4 +1,3 @@
-#include "include.h"
 #include "ClasesCliente.h"
 #include <arpa/inet.h>
 #include <stdio.h>
@@ -11,17 +10,15 @@
 using namespace std;
 
 int sock;
-bool desconectado;
 ControlCliente control;
 
 
 int main(){
     while(1){
-        desconectado = true;
+        control.desconectar();
         string ip;
         int puerto, client_fd;
         struct sockaddr_in serv_addr;
-        pthread_t hiloRead, hiloSend;
 
         cout << "IP del servidor: " << flush;
         cin >> ip;
@@ -30,7 +27,7 @@ int main(){
 
         sock = socket(AF_INET, SOCK_STREAM, 0);
         if(sock < 0){
-            cout << "Error al crear el socket" << endl;
+            cout << "No se pudo crear el socket" << endl;
             continue;
         }
 
@@ -49,37 +46,62 @@ int main(){
             continue;
         }
 
-        while(desconectado){
-            cout << "Nombre de usuario: " << flush;
-            string nombreJSON = control.ponNombre();
-            if(send(sock, nombreJSON.c_str(),
-                    strlen(nombreJSON.c_str()), 0) <= 0){
-                cout << "Error al identificarse" << endl;
-                continue;
-            }
-            desconectado = false;
+        if(!identifica()){
+            continue;
         }
+        control.conectar();
 
-        pthread_create(&hiloRead, NULL, *lee, NULL);
+        pthread_t hiloRead, hiloSend;
+        pthread_create(&hiloRead, NULL, *recibe, NULL);
         pthread_create(&hiloSend, NULL, *envia, NULL);
         pthread_join(hiloRead, NULL);
         pthread_join(hiloSend, NULL);
+
     }
     
     return 0;
 }
 
 
-void *lee(void* args){
+bool identifica(){
+    while(1){
+        cout << "Nombre de usuario: " << flush;
+        string nombreJSON = control.ponNombre();
+        if(send(sock, nombreJSON.c_str(),
+                strlen(nombreJSON.c_str()), 0) <= 0){
+            control.warning("No se pudo enviar el nombre de usuario");
+            continue;
+        }
+        char buffer[1024];
+        if(read(sock, buffer, 1024) <= 0){
+            control.warning("Se desconectó el servidor");
+            return false;
+        }
+        Mensaje mensaje(buffer);
+        switch(tipos[mensaje.getTipo()]){
+            case INFO:
+                return true;
+            case WARNING:
+                control.warning(mensaje.getAtributo("message"));
+                continue;
+            default:
+            continue;
+        }
+    }
+    return false;
+}
+
+void *recibe(void* args){
     char buffer[1024];
     while(1){
         bzero(buffer, 1024);
         if(read(sock, buffer, 1024) <= 0){
-            cout << "Se desconectó el servidor" << endl;
-            desconectado = true;
+            control.warning("--- Se desconectó el servidor ---");
+            control.desconectar();
+            close(sock);
             pthread_exit(NULL);
         }
-        cout << buffer << endl;
+        ejecutaMensaje(buffer);
     }
     return NULL;
 }
@@ -87,14 +109,51 @@ void *lee(void* args){
 void *envia(void* args){
     string mensaje;
     while(1){
-        getline(cin, mensaje);
-        if(desconectado){
+        mensaje = control.escribeMensaje();
+        if(control.estaDesconectado()){
             pthread_exit(NULL);
         }
+        if(mensaje == ""){
+            continue;
+        }
+
         if(send(sock, mensaje.c_str(),
                 strlen(mensaje.c_str()), 0) <= 0){
-            cout << "Error al enviar el mensaje" << endl;
+            control.warning("--- No se pudo enviar el mensaje ---");
         }
     }
     return NULL;
+}
+
+void ejecutaMensaje(string json){
+    Mensaje mensaje(json);
+    switch(tipos[mensaje.getTipo()]){
+        case INFO:
+            break;
+        case WARNING:
+            control.warning("--- "+mensaje.getAtributo("message")+" ---");
+            break;
+        case ERROR:
+            control.warning("-ERROR: " + mensaje.getAtributo("message"));
+            control.desconectar();
+            close(sock);
+            pthread_exit(NULL);
+            break;
+
+        case PUBLIC_MESSAGE_FROM:
+            control.publicMessageFrom(mensaje);
+            break;
+
+        case MESSAGE_FROM:
+            control.messageFrom(mensaje);
+            break;
+
+        case NEW_USER:
+            control.newUser(mensaje);
+            break;
+
+        default:
+            control.warning("--- Mensaje del servidor no reconocido ---");
+            break;
+    }
 }
