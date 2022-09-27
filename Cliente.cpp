@@ -86,7 +86,6 @@ void *lee(void* args){
 
 void *envia(void* args){
     string mensaje;
-    //cin.ignore();
     while(1){
         getline(cin, mensaje);
         if(desconectado){

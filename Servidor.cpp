@@ -9,11 +9,11 @@
 #include <iostream>
 #include <pthread.h>
 #include <list>
+#include <map>
 
 using namespace std;
 
 list<Usuario*> clientes;
-ControlServidor control;
 
 int main(){
     while(1){
@@ -45,9 +45,6 @@ int main(){
             continue;
         }
 
-        pthread_t hiloSend;
-        pthread_create(&hiloSend, NULL, *envia, (void*)&clientes);
-
         while(1){
             new_socket = accept(server_fd, (struct sockaddr*)&address,
                                 (socklen_t*)&addrlen);
@@ -70,42 +67,86 @@ void *lee(void* args){
     Usuario u = *(Usuario*)args;
     Usuario *cliente = &u;
 
-    if(read(cliente->getSocket(), buffer, 1024) <= 0){
-        pthread_exit(NULL);
-    }
-    if(control.ponNombre(buffer, cliente)){
-        clientes.push_back(cliente);
-    }else{
-        close(cliente->getSocket());
-        pthread_exit(NULL);
-    }
+    leeIdentificacion(cliente);
 
     while(1){
         bzero(buffer, 1024);
-        if(read(cliente->getSocket(), buffer, 1024) <= 0)
-            desconectar(cliente);
+        if(read(cliente->getSocket(), buffer, 1024) <= 0){
+            desconectar(cliente, "Error al leer el mensaje");
+            clientes.remove(cliente);
+        }
         cout << buffer << endl;
     }
     return NULL;
 }
-void *envia(void* args){
-    list<Usuario*>* clientes = (list<Usuario*>*)args;
-    string mensaje;
-    cin.ignore();
 
-    while(1){
-        getline(cin, mensaje);
-        for(Usuario *cliente : *clientes){
-            if(send(cliente->getSocket(), mensaje.c_str(),
-                    strlen(mensaje.c_str()), 0) <= 0){
-                cout << "Error al enviar el mensaje" << endl;
+
+
+void desconectar(Usuario *cliente, string message){
+    Mensaje mensaje;
+    mensaje.setTipo("ERROR");
+    mensaje.setAtributo("message", message);
+    send(cliente->getSocket(), mensaje.toString().c_str(),
+         strlen(mensaje.toString().c_str()), 0);
+    close(cliente->getSocket());
+    pthread_exit(NULL);
+}
+
+void leeIdentificacion(Usuario *cliente){
+    char buffer[1024];
+    map<Mensaje*,list<Usuario*>> envios;
+
+    if(read(cliente->getSocket(), buffer, 1024) <= 0){
+        desconectar(cliente, "Error: no se pudo identificar");
+    }
+    envios = identifica(buffer, cliente);
+    for(auto &envio : envios){
+        for(Usuario *destinatario : envio.second){
+            if(send(destinatario->getSocket(), envio.first->toString().c_str(),
+                    strlen(envio.first->toString().c_str()), 0) <= 0){
+                close(destinatario->getSocket());
+                pthread_exit(NULL);
             }
         }
     }
-    return NULL;
 }
-
-void desconectar(Usuario *cliente){
-    clientes.remove(cliente);
-    pthread_exit(NULL);
+map<Mensaje*,list<Usuario*>> identifica(string json, Usuario *cliente){
+    Mensaje mensaje(json);
+    list<Usuario*> destinatarios;
+    map<Mensaje*,list<Usuario*>> envios;
+    if(!mensaje.esValido() || mensaje.getTipo() != "IDENTIFY"){
+        desconectar(cliente, "Error: no se pudo identificar");
+        envios.insert(pair<Mensaje*,list<Usuario*>>(&mensaje, destinatarios));
+        return envios;
+    }
+    bool nombreUsado = false;
+    for(Usuario *usuario : clientes){
+        if(usuario->getNombre() == mensaje.getAtributo("username")){
+            nombreUsado = true;
+            break;
+        }
+    }
+    if(nombreUsado){
+        Mensaje warning;
+        warning.setTipo("WARNING");
+        warning.setAtributo("message", "El usuario '" + mensaje.getAtributo("username") + "' ya existe");
+        warning.setAtributo("operation", "IDENTIFY");
+        warning.setAtributo("username", mensaje.getAtributo("username"));
+        destinatarios.push_back(cliente);
+        envios.insert(pair<Mensaje*,list<Usuario*>>(&warning, destinatarios));
+        return envios;
+    }
+    cliente->setNombre(mensaje.getAtributo("username"));
+    Mensaje info;
+    info.setTipo("INFO");
+    info.setAtributo("message", "success");
+    info.setAtributo("operation", "IDENTIFY");
+    destinatarios.push_back(cliente);
+    envios.insert(pair<Mensaje*,list<Usuario*>>(&info, destinatarios));
+    Mensaje newUser;
+    newUser.setTipo("NEW_USER");
+    newUser.setAtributo("username", mensaje.getAtributo("username"));
+    envios.insert(pair<Mensaje*,list<Usuario*>>(&newUser, clientes));
+    clientes.push_back(cliente);
+    return envios;
 }
