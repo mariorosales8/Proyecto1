@@ -31,7 +31,31 @@ public:
 
 class Sala{
 private:
-    list<Usuario> usuarios;
+    string nombre;
+    list<Usuario*> usuarios;
+
+public:
+    Sala(string nombre, Usuario* usuario){
+        this->nombre = nombre;
+        usuarios.push_back(usuario);
+    }
+
+    string getNombre(){
+        return nombre;
+    }
+
+    list<Usuario*> getUsuarios(){
+        return usuarios;
+    }
+
+    void agregaUsuario(Usuario* usuario){
+        usuarios.push_back(usuario);
+    }
+
+    bool eliminaUsuario(Usuario* usuario){
+        usuarios.remove(usuario);
+        return usuarios.empty();
+    }
 };
 
 
@@ -43,3 +67,4 @@ map<string,list<Usuario*>> message(Mensaje mensaje, Usuario *cliente);
 
 map<string,list<Usuario*>> identifica(string, Usuario*);
 map<string,list<Usuario*>> publicMessage(Mensaje, Usuario*);
+map<string,list<Usuario*>> newRoom(Mensaje, Usuario*);

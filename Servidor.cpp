@@ -14,6 +14,7 @@
 using namespace std;
 
 list<Usuario*> clientes;
+list <Sala*> salas;
 
 int main(){
     while(1){
@@ -183,6 +184,10 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
         case MESSAGE:
             envios = message(mensaje, cliente);
             break;
+
+        case NEW_ROOM:
+            envios = newRoom(mensaje, cliente);
+            break;
         
         default:
             clientes.remove(cliente);
@@ -236,6 +241,29 @@ map<string,list<Usuario*>> message(Mensaje mensaje, Usuario *cliente){
     respuesta.setAtributo("username", cliente->getNombre());
     respuesta.setAtributo("message", mensaje.getAtributo("message"));
 
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> newRoom(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+    destinatarios.push_back(cliente);
+    for(Sala *sala : salas){
+        if(sala->getNombre() == mensaje.getAtributo("roomname")){
+            respuesta.setTipo("WARNING");
+            respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' ya existe");
+            respuesta.setAtributo("operation", "NEW_ROOM");
+            respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+            envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+            return envios;
+        }
+    }
+    salas.push_back(new Sala(mensaje.getAtributo("roomname"), cliente));
+    respuesta.setTipo("INFO");
+    respuesta.setAtributo("message", "success");
+    respuesta.setAtributo("operation", "NEW_ROOM");
     envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
     return envios;
 }

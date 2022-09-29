@@ -82,19 +82,15 @@ class ControlCliente{
         String entrada = interfaz.lee();
         Mensaje mensaje;
         if(entrada == "" || entrada.front() != '-'){
-            if(tipoSala == '-'){
-                mensaje.setTipo("PUBLIC_MESSAGE");
-                mensaje.setAtributo("message", entrada);
-                return mensaje.toString();
-            }
             if(tipoSala == 'p'){
                 mensaje.setTipo("MESSAGE");
                 mensaje.setAtributo("username", destinatario);
                 mensaje.setAtributo("message", entrada);
                 return mensaje.toString();
             }
-
-            return "";
+            mensaje.setTipo("PUBLIC_MESSAGE");
+            mensaje.setAtributo("message", entrada);
+            return mensaje.toString();
         }
         
         if(entrada[1] == 'p'){
@@ -107,6 +103,27 @@ class ControlCliente{
                 interfaz.cambiaSala("Chat público");
             }
             return "";
+        }
+        if(entrada[1] == 's'){
+            if(entrada.length() > 3){
+                tipoSala = 's';
+                destinatario = entrada.substr(3);
+                interfaz.cambiaSala(destinatario + " (Sala)");
+            }else{
+                warning("No se especificó el nombre de la sala");
+            }
+            return "";
+        }
+        if(entrada[1] == 'c'){
+            if(entrada.length() > 3){
+                mensaje.setTipo("NEW_ROOM");
+                mensaje.setAtributo("roomname", entrada.substr(3));
+                tipoSala = 's';
+                interfaz.cambiaSala(entrada.substr(3) + " (Sala)");
+                return mensaje.toString();
+            }else{
+                warning("No se especificó el nombre de la sala a crear");
+            }
         }
 
         

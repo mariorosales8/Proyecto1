@@ -1,13 +1,14 @@
 #include <json/json.h>
 #include <map>
+#include<list>
+#include <iostream>
 
 using namespace Json;
 using namespace std;
 
 class Mensaje{
 private:
-    string tipo;
-    map<string,string> atributos;
+    Value atributos;
 
 public:
     /**
@@ -20,21 +21,14 @@ public:
      */
     Mensaje(string jsonString){
         Reader reader;
-        Value json;
-        reader.parse(jsonString, json);
-        tipo = json["type"].asString();
-        for(auto &llave : json.getMemberNames()){
-           if(llave != "type"){
-                atributos[llave] = json[llave].asString();
-           }
-        }
+        reader.parse(jsonString, atributos);
     }
 
     string getTipo(){
-        return tipo;
+        return atributos["type"].asString();
     }
     void setTipo(string tipo){
-        this->tipo = tipo;
+        atributos["type"] = tipo;
     }
 
     /**
@@ -43,8 +37,18 @@ public:
      * @return string El atributo del mensaje
      */
     string getAtributo(string llave){
-        return atributos[llave];
+        return atributos[llave].asString();
     }
+    list<string> getLista(string llave){
+        list<string> lista;
+        if(atributos[llave].isArray()){
+            for (auto &elemento : atributos[llave]){
+                lista.push_back(elemento.asString());
+            }
+        }
+        return lista;
+    }
+
     /**
      * @brief Agrega un atributo al mensaje
      * @param llave La llave en la que se quiere agregar el atributo
@@ -53,6 +57,11 @@ public:
     void setAtributo(string llave, string valor){
         atributos[llave] = valor;
     }
+    void setLista(string llave, list<string> lista){
+        for(string s : lista){
+            atributos[llave].append(s);
+        }
+    }
 
     /**
      * @brief Convierte el mensaje a un string
@@ -60,12 +69,7 @@ public:
      */
     string toString(){
         FastWriter writer;
-        Value json;
-        json["type"] = tipo;
-        for(auto &[llave, atributo] : atributos){
-            json[llave] = atributo;
-        }
-        return writer.write(json);
+        return writer.write(atributos);
     }
 
     /**
@@ -73,7 +77,7 @@ public:
      * @return true si el tipo es distinto de vacío, false en otro caso
      */
     bool esValido(){
-        return tipo != "";
+        return getTipo() != "";
     }
 
 };
