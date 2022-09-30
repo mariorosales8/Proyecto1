@@ -185,8 +185,36 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
             envios = message(mensaje, cliente);
             break;
 
+        case ROOM_MESSAGE:
+            envios = roomMessage(mensaje, cliente);
+            break;
+
+        case USERS:
+            envios = users(mensaje, cliente);
+            break;
+
+        case ROOM_USERS:
+            envios = roomUsers(mensaje, cliente);
+            break;
+
+        case INVITE:
+            envios = invite(mensaje, cliente);
+            break;
+
+        case JOIN_ROOM:
+            envios = joinRoom(mensaje, cliente);
+            break;
+
         case NEW_ROOM:
             envios = newRoom(mensaje, cliente);
+            break;
+
+        case STATUS:
+            envios = status(mensaje, cliente);
+            break;
+
+        case LEAVE_ROOM:
+            envios = leaveRoom(mensaje, cliente);
             break;
         
         default:
@@ -264,6 +292,287 @@ map<string,list<Usuario*>> newRoom(Mensaje mensaje, Usuario *cliente){
     respuesta.setTipo("INFO");
     respuesta.setAtributo("message", "success");
     respuesta.setAtributo("operation", "NEW_ROOM");
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> invite(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+    Sala *sala = NULL;
+    
+    for(Sala *cuarto : salas){
+        if(cuarto->getNombre() == mensaje.getAtributo("roomname")){
+            sala = cuarto;
+            break;
+        }
+    }
+    if(sala == NULL){
+        respuesta.setTipo("WARNING");
+        respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' no existe");
+        respuesta.setAtributo("operation", "INVITE");
+        respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+        destinatarios.push_back(cliente);
+        envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+        return envios;
+    }
+
+    list<string> nombres = mensaje.getLista("usernames");
+    string noExiste = "";
+    for(string nombre : nombres){
+        noExiste = nombre;
+        for(Usuario *usuario : clientes){
+            if(usuario->getNombre() == nombre){
+                destinatarios.push_back(usuario);
+                noExiste = "";
+                break;
+            }
+        }
+        if(noExiste != ""){
+            break;
+        }
+    }
+    if(noExiste != ""){
+        respuesta.setTipo("WARNING");
+        respuesta.setAtributo("message", "El usuario '" + noExiste + "' no existe");
+        respuesta.setAtributo("operation", "INVITE");
+        respuesta.setAtributo("username", noExiste);
+        destinatarios.clear();
+        destinatarios.push_back(cliente);
+        envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+        return envios;
+    }
+
+    sala->invita(destinatarios);
+
+    Mensaje invitacion;
+    invitacion.setTipo("INVITATION");
+    invitacion.setAtributo("message", cliente->getNombre() + " te invita al cuarto '" 
+                                     + sala->getNombre() + "'");
+    invitacion.setAtributo("username", cliente->getNombre());
+    invitacion.setAtributo("roomname", sala->getNombre());
+    envios.insert(pair<string,list<Usuario*>>(invitacion.toString(), destinatarios));
+
+    destinatarios.clear();
+    respuesta.setTipo("INFO");
+    respuesta.setAtributo("message", "success");
+    respuesta.setAtributo("operation", "INVITE");
+    respuesta.setAtributo("roomname", sala->getNombre());
+    destinatarios.push_back(cliente);
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> joinRoom(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+
+    for(Sala *sala : salas){
+        if(sala->getNombre() == mensaje.getAtributo("roomname")){
+            if(sala->estaEnSala(cliente)){
+                respuesta.setTipo("WARNING");
+                respuesta.setAtributo("message", "El usuario ya se unió al cuarto '" + sala->getNombre() + "'");
+                respuesta.setAtributo("operation", "JOIN_ROOM");
+                respuesta.setAtributo("roomname", sala->getNombre());
+                destinatarios.push_back(cliente);
+                envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+                return envios;
+            }
+            if(!sala->estaInvitado(cliente)){
+                respuesta.setTipo("WARNING");
+                respuesta.setAtributo("message", "El usuario no ha sido invitado al cuarto '" + sala->getNombre() + "'");
+                respuesta.setAtributo("operation", "JOIN_ROOM");
+                respuesta.setAtributo("roomname", sala->getNombre());
+                destinatarios.push_back(cliente);
+                envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+                return envios;
+            }
+            Mensaje joinedRoom;
+            joinedRoom.setTipo("JOINED_ROOM");
+            joinedRoom.setAtributo("roomname", sala->getNombre());
+            joinedRoom.setAtributo("username", cliente->getNombre());
+            for(Usuario *usuario : sala->getUsuarios()){
+                destinatarios.push_back(usuario);
+            }
+            envios.insert(pair<string,list<Usuario*>>(joinedRoom.toString(), destinatarios));
+
+            sala->agrega(cliente);
+            respuesta.setTipo("INFO");
+            respuesta.setAtributo("message", "success");
+            respuesta.setAtributo("operation", "JOIN_ROOM");
+            respuesta.setAtributo("roomname", sala->getNombre());
+            destinatarios.clear();
+            destinatarios.push_back(cliente);
+            envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+            return envios;
+        }
+    }
+    respuesta.setTipo("WARNING");
+    respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' no existe");
+    respuesta.setAtributo("operation", "JOIN_ROOM");
+    respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+    destinatarios.push_back(cliente);
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> roomMessage(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+
+    for(Sala *sala : salas){
+        if(sala->getNombre() == mensaje.getAtributo("roomname")){
+            if(!sala->estaEnSala(cliente)){
+                respuesta.setTipo("WARNING");
+                respuesta.setAtributo("message", "El usuario no se ha unido al cuarto '" + sala->getNombre() + "'");
+                respuesta.setAtributo("operation", "ROOM_MESSAGE");
+                respuesta.setAtributo("roomname", sala->getNombre());
+                destinatarios.push_back(cliente);
+                envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+                return envios;
+            }
+            respuesta.setTipo("ROOM_MESSAGE_FROM");
+            respuesta.setAtributo("roomname", sala->getNombre());
+            respuesta.setAtributo("username", cliente->getNombre());
+            respuesta.setAtributo("message", mensaje.getAtributo("message"));
+            for(Usuario *usuario : sala->getUsuarios()){
+                if(usuario != cliente){
+                    destinatarios.push_back(usuario);
+                }
+            }
+            envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+            return envios;
+        }
+    }
+    respuesta.setTipo("WARNING");
+    respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' no existe");
+    respuesta.setAtributo("operation", "ROOM_MESSAGE");
+    respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+    destinatarios.push_back(cliente);
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> status(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+
+    if(mensaje.getAtributo("status") == cliente->getEstado()){
+        respuesta.setTipo("WARNING");
+        respuesta.setAtributo("message", "El estado ya es '" + cliente->getEstado() + "'");
+        respuesta.setAtributo("operation", "STATUS");
+        respuesta.setAtributo("status", mensaje.getAtributo("status"));
+        destinatarios.push_back(cliente);
+        envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+        return envios;
+    }
+    cliente->setEstado(mensaje.getAtributo("status"));
+    respuesta.setTipo("INFO");
+    respuesta.setAtributo("message", "success");
+    respuesta.setAtributo("operation", "STATUS");
+    destinatarios.push_back(cliente);
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+
+    Mensaje newStatus;
+    newStatus.setTipo("NEW_STATUS");
+    newStatus.setAtributo("username", cliente->getNombre());
+    newStatus.setAtributo("status", mensaje.getAtributo("status"));
+    destinatarios.clear();
+    for(Usuario *usuario : clientes){
+        if(usuario != cliente){
+            destinatarios.push_back(usuario);
+        }
+    }
+    envios.insert(pair<string,list<Usuario*>>(newStatus.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> users(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+
+    respuesta.setTipo("USER_LIST");
+    respuesta.setLista("usernames", clientes);
+    destinatarios.push_back(cliente);
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> roomUsers(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+    destinatarios.push_back(cliente);
+
+    for(Sala *sala : salas){
+        if(sala->getNombre() == mensaje.getAtributo("roomname")){
+            if(!sala->estaEnSala(cliente)){
+                respuesta.setTipo("WARNING");
+                respuesta.setAtributo("message", "El usuario no se ha unido al cuarto '" + sala->getNombre() + "'");
+                respuesta.setAtributo("operation", "ROOM_USERS");
+                respuesta.setAtributo("roomname", sala->getNombre());
+                envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+                return envios;
+            }
+            respuesta.setTipo("ROOM_USER_LIST");
+            respuesta.setLista("usernames", sala->getUsuarios());
+            envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+            return envios;
+        }
+    }
+    respuesta.setTipo("WARNING");
+    respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' no existe");
+    respuesta.setAtributo("operation", "ROOM_USERS");
+    respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> leaveRoom(Mensaje mensaje, Usuario *cliente){
+    list<Usuario*> destinatarios;
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+
+    for(Sala *sala : salas){
+        if(sala->getNombre() == mensaje.getAtributo("roomname")){
+            if(!sala->estaEnSala(cliente)){
+                respuesta.setTipo("WARNING");
+                respuesta.setAtributo("message", "El usuario no se ha unido al cuarto '" + sala->getNombre() + "'");
+                respuesta.setAtributo("operation", "LEAVE_ROOM");
+                respuesta.setAtributo("roomname", sala->getNombre());
+                destinatarios.push_back(cliente);
+                envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+                return envios;
+            }
+            sala->elimina(cliente);
+            Mensaje leftRoom;
+            leftRoom.setTipo("LEFT_ROOM");
+            leftRoom.setAtributo("roomname", sala->getNombre());
+            leftRoom.setAtributo("username", cliente->getNombre());
+            destinatarios = sala->getUsuarios();
+            destinatarios.remove(cliente);
+            envios.insert(pair<string,list<Usuario*>>(leftRoom.toString(), destinatarios));
+
+            respuesta.setTipo("INFO");
+            respuesta.setAtributo("message", "success");
+            respuesta.setAtributo("operation", "LEAVE_ROOM");
+            respuesta.setAtributo("roomname", sala->getNombre());
+            destinatarios.clear();
+            destinatarios.push_back(cliente);
+            envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+            return envios;
+        }
+    }
+    respuesta.setTipo("WARNING");
+    respuesta.setAtributo("message", "El cuarto '" + mensaje.getAtributo("roomname") + "' no existe");
+    respuesta.setAtributo("operation", "LEAVE_ROOM");
+    respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
+    destinatarios.push_back(cliente);
     envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
     return envios;
 }

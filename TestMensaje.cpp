@@ -15,7 +15,7 @@ TEST_CASE("Mensaje", "Mensaje"){
     REQUIRE(m.esValido());
     REQUIRE(m.getTipo() == "Prueba");
     REQUIRE(m.getAtributo("nombre") == "Juan");
-    REQUIRE(m.getAtributo("ninguno") == "");
+    REQUIRE(m.getAtributo("ninguno").empty());
 
     list<string> lista;
     lista.push_back("1");
@@ -29,7 +29,7 @@ TEST_CASE("Mensaje", "Mensaje"){
     REQUIRE(m.esValido());
     REQUIRE(m.getTipo() == "Prueba");
     REQUIRE(m.getAtributo("nombre") == "Juan");
-    REQUIRE(m.getAtributo("ninguno") == "");
+    REQUIRE(m.getAtributo("ninguno").empty());
     REQUIRE(m.getLista("lista") == lista);
 
     m = Mensaje("Juan, 20 años");

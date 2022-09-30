@@ -69,12 +69,12 @@ bool identifica(){
         string nombreJSON = control.ponNombre();
         if(send(sock, nombreJSON.c_str(),
                 strlen(nombreJSON.c_str()), 0) <= 0){
-            control.warning("No se pudo enviar el nombre de usuario");
+            control.imprime("No se pudo enviar el nombre de usuario");
             continue;
         }
         char buffer[1024];
         if(read(sock, buffer, 1024) <= 0){
-            control.warning("Se desconectó el servidor");
+            control.imprime("Se desconectó el servidor");
             return false;
         }
         Mensaje mensaje(buffer);
@@ -82,7 +82,7 @@ bool identifica(){
             case INFO:
                 return true;
             case WARNING:
-                control.warning(mensaje.getAtributo("message"));
+                control.imprime(mensaje.getAtributo("message"));
                 continue;
             default:
             continue;
@@ -96,7 +96,7 @@ void *recibe(void* args){
     while(1){
         bzero(buffer, 1024);
         if(read(sock, buffer, 1024) <= 0){
-            control.warning("--- Se desconectó el servidor ---");
+            control.imprime("--- Se desconectó el servidor ---");
             control.desconectar();
             close(sock);
             pthread_exit(NULL);
@@ -109,17 +109,17 @@ void *recibe(void* args){
 void *envia(void* args){
     string mensaje;
     while(1){
-        mensaje = control.escribeMensaje();
+        mensaje = control.escribeComando();
         if(control.estaDesconectado()){
             pthread_exit(NULL);
         }
-        if(mensaje == ""){
+        if(mensaje.empty()){
             continue;
         }
 
         if(send(sock, mensaje.c_str(),
                 strlen(mensaje.c_str()), 0) <= 0){
-            control.warning("--- No se pudo enviar el mensaje ---");
+            control.imprime("--- No se pudo enviar el mensaje ---");
         }
     }
     return NULL;
@@ -129,12 +129,13 @@ void ejecutaMensaje(string json){
     Mensaje mensaje(json);
     switch(tipos[mensaje.getTipo()]){
         case INFO:
+            control.info(mensaje);
             break;
         case WARNING:
-            control.warning("--- "+mensaje.getAtributo("message")+" ---");
+            control.warning(mensaje);
             break;
         case ERROR:
-            control.warning("-ERROR: " + mensaje.getAtributo("message"));
+            control.imprime("-ERROR: " + mensaje.getAtributo("message"));
             control.desconectar();
             close(sock);
             pthread_exit(NULL);
@@ -148,12 +149,40 @@ void ejecutaMensaje(string json){
             control.messageFrom(mensaje);
             break;
 
+        case ROOM_MESSAGE_FROM:
+            control.roomMessageFrom(mensaje);
+            break;
+
         case NEW_USER:
             control.newUser(mensaje);
             break;
 
+        case USER_LIST:
+            control.userList(mensaje);
+            break;
+
+        case ROOM_USER_LIST:
+            control.roomUserList(mensaje);
+            break;
+
+        case JOINED_ROOM:
+            control.joinedRoom(mensaje);
+            break;
+
+        case INVITATION:
+            control.invitation(mensaje);
+            break;
+
+        case NEW_STATUS:
+            control.newStatus(mensaje);
+            break;
+
+        case LEFT_ROOM:
+            control.leftRoom(mensaje);
+            break;
+
         default:
-            control.warning("--- Mensaje del servidor no reconocido ---");
+            control.imprime("--- Mensaje del servidor no reconocido ---");
             break;
     }
 }

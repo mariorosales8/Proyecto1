@@ -3,39 +3,18 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <algorithm>
 
 using namespace std;
-
-class Usuario{
-private:
-    string nombre;
-    string estado;
-    int socket;
-
-public:
-    Usuario(int socket){
-        this->socket = socket;
-    }
-    
-    int getSocket(){
-        return socket;
-    }
-    string getNombre(){
-        return nombre;
-    }
-    void setNombre(string nombre){
-        this->nombre = nombre;
-    }
-};
-
 
 class Sala{
 private:
     string nombre;
     list<Usuario*> usuarios;
+    list<Usuario*> invitados;
 
 public:
-    Sala(string nombre, Usuario* usuario){
+    Sala(string nombre, Usuario *usuario){
         this->nombre = nombre;
         usuarios.push_back(usuario);
     }
@@ -48,13 +27,29 @@ public:
         return usuarios;
     }
 
-    void agregaUsuario(Usuario* usuario){
+    void agrega(Usuario *usuario){
         usuarios.push_back(usuario);
+        invitados.remove(usuario);
     }
 
-    bool eliminaUsuario(Usuario* usuario){
+    bool elimina(Usuario *usuario){
         usuarios.remove(usuario);
+        invitados.push_back(usuario);
         return usuarios.empty();
+    }
+
+    void invita(list<Usuario*> usuarios){
+        for(Usuario *usuario : usuarios){
+            invitados.push_back(usuario);
+        }
+    }
+
+    bool estaInvitado(Usuario *usuario){
+        return find(invitados.begin(), invitados.end(), usuario) != invitados.end();
+    }
+
+    bool estaEnSala(Usuario *usuario){
+        return find(usuarios.begin(), usuarios.end(), usuario) != usuarios.end();
     }
 };
 
@@ -68,3 +63,10 @@ map<string,list<Usuario*>> message(Mensaje mensaje, Usuario *cliente);
 map<string,list<Usuario*>> identifica(string, Usuario*);
 map<string,list<Usuario*>> publicMessage(Mensaje, Usuario*);
 map<string,list<Usuario*>> newRoom(Mensaje, Usuario*);
+map<string,list<Usuario*>> invite(Mensaje, Usuario*);
+map<string,list<Usuario*>> joinRoom(Mensaje, Usuario*);
+map<string,list<Usuario*>> roomMessage(Mensaje, Usuario*);
+map<string,list<Usuario*>> status(Mensaje, Usuario*);
+map<string,list<Usuario*>> users(Mensaje, Usuario*);
+map<string,list<Usuario*>> roomUsers(Mensaje, Usuario*);
+map<string,list<Usuario*>> leaveRoom(Mensaje, Usuario*);

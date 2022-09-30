@@ -3,9 +3,10 @@
 
 enum tipo{ERROR,WARNING,INFO,STATUS,USERS,MESSAGE,PUBLIC_MESSAGE,
           NEW_ROOM,INVITE,JOIN_ROOM,ROOM_USERS,ROOM_MESSAGE,
-          LEAVE_ROOM,DISCONNECT,NEW_USER,NES_STATUS,USER_LIST,
-          MESSAGE_FROM,PUBLIC_MESSAGE_FROM,JOINED_ROOM,
-          ROOM_USER_LIST,ROOM_MESSAGE_FROM,LEFT_ROOM,DISCONNECTED};
+          LEAVE_ROOM,DISCONNECT,NEW_USER,NEW_STATUS,USER_LIST,
+          MESSAGE_FROM,PUBLIC_MESSAGE_FROM,INVITATION,JOINED_ROOM,
+          ROOM_USER_LIST,ROOM_MESSAGE_FROM,LEFT_ROOM,DISCONNECTED,
+          NINGUNO};
 
 map<std::string, tipo> tipos = {{"ERROR",ERROR},{"WARNING",WARNING},
                            {"INFO",INFO},{"STATUS",STATUS},
@@ -16,10 +17,11 @@ map<std::string, tipo> tipos = {{"ERROR",ERROR},{"WARNING",WARNING},
                            {"ROOM_MESSAGE",ROOM_MESSAGE},
                            {"LEAVE_ROOM",LEAVE_ROOM},
                            {"DISCONNECT",DISCONNECT},
-                           {"NEW_USER",NEW_USER},{"NES_STATUS",NES_STATUS},
+                           {"NEW_USER",NEW_USER},{"NEW_STATUS",NEW_STATUS},
                            {"USER_LIST",USER_LIST},
                            {"MESSAGE_FROM",MESSAGE_FROM},
                            {"PUBLIC_MESSAGE_FROM",PUBLIC_MESSAGE_FROM},
+                           {"INVITATION",INVITATION},
                            {"JOINED_ROOM",JOINED_ROOM},
                            {"ROOM_USER_LIST",ROOM_USER_LIST},
                            {"ROOM_MESSAGE_FROM",ROOM_MESSAGE_FROM},

@@ -1,3 +1,4 @@
+#include "Usuario.cpp"
 #include <json/json.h>
 #include <map>
 #include<list>
@@ -39,6 +40,11 @@ public:
     string getAtributo(string llave){
         return atributos[llave].asString();
     }
+    /**
+     * @brief Obtiene la lista de elementos de un atributo
+     * @param llave La llave del atributo que se quiere obtener
+     * @return list<string> La lista de elementos si el atributo es una lista, una lista vacía si no lo es
+     */
     list<string> getLista(string llave){
         list<string> lista;
         if(atributos[llave].isArray()){
@@ -57,9 +63,25 @@ public:
     void setAtributo(string llave, string valor){
         atributos[llave] = valor;
     }
+
+    /**
+     * @brief Agrega una lista al mensaje
+     * @param llave La llave en la que se quiere agregar la lista
+     * @param lista La lista de strings que se quiere agregar
+     */
     void setLista(string llave, list<string> lista){
         for(string s : lista){
             atributos[llave].append(s);
+        }
+    }
+    /**
+     * @brief Agrega una lista al mensaje
+     * @param llave La llave en la que se quiere agregar la lista
+     * @param lista La lista de usuarios que se quiere agregar
+     */
+    void setLista(string llave, list<Usuario*> lista){
+        for(Usuario *usuario : lista){
+            atributos[llave].append(usuario->getNombre());
         }
     }
 
@@ -77,7 +99,7 @@ public:
      * @return true si el tipo es distinto de vacío, false en otro caso
      */
     bool esValido(){
-        return getTipo() != "";
+        return !getTipo().empty();
     }
 
 };
