@@ -75,29 +75,31 @@ void *recibe(void* args){
     while(1){
         bzero(buffer, 1024);
         if(read(cliente->getSocket(), buffer, 1024) <= 0){
-            clientes.remove(cliente);
-            desconectar(cliente, "No se pudo recibir el mensaje");
+            envia(disconnect(cliente));
+            desconectarSocket(cliente, "No se pudo recibir el mensaje");
         }
 
         map<string,list<Usuario*>> envios;
-        envios = ejecutaMensaje(buffer, cliente);
-        for(auto &envio : envios){
-            for(Usuario *destinatario : envio.second){
-                if(send(destinatario->getSocket(), envio.first.c_str(),
-                        strlen(envio.first.c_str()), 0) <= 0){
-                    close(destinatario->getSocket());
-                    clientes.remove(destinatario);
-                    pthread_exit(NULL);
-                }
-            }
-        }
+        envia(ejecutaMensaje(buffer, cliente));
     }
     return NULL;
 }
 
+void envia(map<string,list<Usuario*>> envios){
+    for(auto &envio : envios){
+            for(Usuario *destinatario : envio.second){
+                if(send(destinatario->getSocket(), envio.first.c_str(),
+                        strlen(envio.first.c_str()), 0) <= 0){
+                    close(destinatario->getSocket());
+                    disconnect(destinatario);
+                    pthread_exit(NULL);
+                }
+            }
+        }
+}
 
 
-void desconectar(Usuario *cliente, string message){
+void desconectarSocket(Usuario *cliente, string message){
     Mensaje mensaje;
     mensaje.setTipo("ERROR");
     mensaje.setAtributo("message", message);
@@ -112,7 +114,7 @@ void recibeIdentificacion(Usuario *cliente){
     map<string,list<Usuario*>> envios;
 
     if(read(cliente->getSocket(), buffer, 1024) <= 0){
-        desconectar(cliente, "No se pudo identificar");
+        desconectarSocket(cliente, "No se pudo identificar");
     }
     envios = identifica(buffer, cliente);
     for(auto &envio : envios){
@@ -130,7 +132,7 @@ map<string,list<Usuario*>> identifica(string json, Usuario *cliente){
     list<Usuario*> destinatarios;
     map<string,list<Usuario*>> envios;
     if(!mensaje.esValido() || mensaje.getTipo() != "IDENTIFY"){
-        desconectar(cliente, "No se pudo identificar");
+        desconectarSocket(cliente, "No se pudo identificar");
         envios.insert(pair<string,list<Usuario*>>(mensaje.toString(), destinatarios));
         return envios;
     }
@@ -171,8 +173,8 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
     list<Usuario*> destinatarios;
     map<string,list<Usuario*>> envios;
     if(!mensaje.esValido()){
-        clientes.remove(cliente);
-        desconectar(cliente, "Mensaje inválido");
+        disconnect(cliente);
+        desconectarSocket(cliente, "Mensaje inválido");
         envios.insert(pair<string,list<Usuario*>>(mensaje.toString(), destinatarios));
         return envios;
     }
@@ -190,7 +192,7 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
             break;
 
         case USERS:
-            envios = users(mensaje, cliente);
+            envios = users(cliente);
             break;
 
         case ROOM_USERS:
@@ -216,10 +218,14 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
         case LEAVE_ROOM:
             envios = leaveRoom(mensaje, cliente);
             break;
+
+        case DISCONNECT:
+            envios = disconnect(cliente);
+            break;
         
         default:
-            clientes.remove(cliente);
-            desconectar(cliente, "Mensaje no reconocido");
+            disconnect(cliente);
+            desconectarSocket(cliente, "Mensaje no reconocido");
             envios.insert(pair<string,list<Usuario*>>(mensaje.toString(), destinatarios));
             break;
     }
@@ -491,7 +497,7 @@ map<string,list<Usuario*>> status(Mensaje mensaje, Usuario *cliente){
     return envios;
 }
 
-map<string,list<Usuario*>> users(Mensaje mensaje, Usuario *cliente){
+map<string,list<Usuario*>> users(Usuario *cliente){
     list<Usuario*> destinatarios;
     map<string,list<Usuario*>> envios;
     Mensaje respuesta;
@@ -549,7 +555,9 @@ map<string,list<Usuario*>> leaveRoom(Mensaje mensaje, Usuario *cliente){
                 envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
                 return envios;
             }
-            sala->elimina(cliente);
+            if(sala->elimina(cliente)){
+                salas.remove(sala);
+            }
             Mensaje leftRoom;
             leftRoom.setTipo("LEFT_ROOM");
             leftRoom.setAtributo("roomname", sala->getNombre());
@@ -574,5 +582,34 @@ map<string,list<Usuario*>> leaveRoom(Mensaje mensaje, Usuario *cliente){
     respuesta.setAtributo("roomname", mensaje.getAtributo("roomname"));
     destinatarios.push_back(cliente);
     envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), destinatarios));
+    return envios;
+}
+
+map<string,list<Usuario*>> disconnect(Usuario *cliente){
+    map<string,list<Usuario*>> envios;
+    Mensaje respuesta;
+    list<Sala*> vacias;
+
+    clientes.remove(cliente);
+    respuesta.setTipo("DISCONNECTED");
+    respuesta.setAtributo("username", cliente->getNombre());
+    envios.insert(pair<string,list<Usuario*>>(respuesta.toString(), clientes));
+
+    for(Sala *sala : salas){
+        if(sala->estaEnSala(cliente)){
+            Mensaje leftRoom;
+            leftRoom.setTipo("LEFT_ROOM");
+            leftRoom.setAtributo("roomname", sala->getNombre());
+            leftRoom.setAtributo("username", cliente->getNombre());
+            if(sala->elimina(cliente)){
+                vacias.push_back(sala);
+            }
+            envios.insert(pair<string,list<Usuario*>>(leftRoom.toString(), sala->getUsuarios()));
+        }
+    }
+    for(Sala *sala : vacias){
+        salas.remove(sala);
+    }
+
     return envios;
 }

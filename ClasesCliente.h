@@ -67,6 +67,12 @@ class ControlCliente{
     void desconectar(){
         desconectado = true;
         primeraEntrada = true;
+        tipoSala = '-';
+        sala = "";
+        salas.clear();
+        invitaciones.clear();
+        mensajeEnEspera = NINGUNO;
+        informacion = "";
     }
     void conectar(){
         desconectado = false;
@@ -284,6 +290,11 @@ class ControlCliente{
             interfaz.imprime("No se especificó la sala");
             return "";
         }
+        if(entrada[1] == 'd'){
+            mensaje.setTipo("DISCONNECT");
+            desconectar();
+            return mensaje.toString();
+        }
 
 
         interfaz.imprime("Comando no reconocido");
@@ -347,6 +358,10 @@ class ControlCliente{
     void leftRoom(Mensaje mensaje){
         interfaz.imprime("--- " + mensaje.getAtributo("username") + " ha dejado la sala " +
                          mensaje.getAtributo("roomname") + " ---");
+    }
+
+    void disconnected(Mensaje mensaje){
+        interfaz.imprime("--- " + mensaje.getAtributo("username") + " se desconectó ---");
     }
 };
 

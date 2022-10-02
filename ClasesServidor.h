@@ -34,7 +34,6 @@ public:
 
     bool elimina(Usuario *usuario){
         usuarios.remove(usuario);
-        invitados.push_back(usuario);
         return usuarios.empty();
     }
 
@@ -55,7 +54,8 @@ public:
 
 
 void *recibe(void* args);
-void desconectar(Usuario*, string);
+void envia(map<string,list<Usuario*>>);
+void desconectarSocket(Usuario*, string);
 void recibeIdentificacion(Usuario*);
 map<string,list<Usuario*>> ejecutaMensaje(string, Usuario*);
 map<string,list<Usuario*>> message(Mensaje mensaje, Usuario *cliente);
@@ -67,6 +67,7 @@ map<string,list<Usuario*>> invite(Mensaje, Usuario*);
 map<string,list<Usuario*>> joinRoom(Mensaje, Usuario*);
 map<string,list<Usuario*>> roomMessage(Mensaje, Usuario*);
 map<string,list<Usuario*>> status(Mensaje, Usuario*);
-map<string,list<Usuario*>> users(Mensaje, Usuario*);
+map<string,list<Usuario*>> users(Usuario*);
 map<string,list<Usuario*>> roomUsers(Mensaje, Usuario*);
 map<string,list<Usuario*>> leaveRoom(Mensaje, Usuario*);
+map<string,list<Usuario*>> disconnect(Usuario*);

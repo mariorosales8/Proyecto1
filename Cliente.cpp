@@ -52,9 +52,9 @@ int main(){
         control.conectar();
 
         pthread_t hiloRead, hiloSend;
-        pthread_create(&hiloRead, NULL, *recibe, NULL);
-        pthread_create(&hiloSend, NULL, *envia, NULL);
-        pthread_join(hiloRead, NULL);
+        bool *desconectado = new bool(false);
+        pthread_create(&hiloRead, NULL, *recibe, (void*)desconectado);
+        pthread_create(&hiloSend, NULL, *envia, (void*)desconectado);
         pthread_join(hiloSend, NULL);
 
     }
@@ -97,8 +97,11 @@ void *recibe(void* args){
         bzero(buffer, 1024);
         if(read(sock, buffer, 1024) <= 0){
             control.imprime("--- Se desconectó el servidor ---");
-            control.desconectar();
+            *(bool*)args = true;
             close(sock);
+            pthread_exit(NULL);
+        }
+        if(*(bool*)args){
             pthread_exit(NULL);
         }
         ejecutaMensaje(buffer);
@@ -110,7 +113,7 @@ void *envia(void* args){
     string mensaje;
     while(1){
         mensaje = control.escribeComando();
-        if(control.estaDesconectado()){
+        if(*(bool*)args){
             pthread_exit(NULL);
         }
         if(mensaje.empty()){
@@ -120,6 +123,12 @@ void *envia(void* args){
         if(send(sock, mensaje.c_str(),
                 strlen(mensaje.c_str()), 0) <= 0){
             control.imprime("--- No se pudo enviar el mensaje ---");
+        }
+
+        if(control.estaDesconectado()){
+            *(bool*)args = true;
+            close(sock);
+            pthread_exit(NULL);
         }
     }
     return NULL;
@@ -179,6 +188,10 @@ void ejecutaMensaje(string json){
 
         case LEFT_ROOM:
             control.leftRoom(mensaje);
+            break;
+
+        case DISCONNECTED:
+            control.disconnected(mensaje);
             break;
 
         default:
