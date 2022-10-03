@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <pthread.h>
+#include <netdb.h>
 
 using namespace std;
 
@@ -21,9 +22,20 @@ int main(){
         struct sockaddr_in serv_addr;
 
         control.imprime("IP del servidor: ", false);
-        ip = control.lee();
+        ip = inet_ntoa(*(struct in_addr*)gethostbyname(control.lee().c_str())->h_addr_list[0]);
         control.imprime("Puerto: ", false);
-        puerto = stoi(control.lee());
+        string puertoString = control.lee();
+        for(char c :puertoString){
+            if(isdigit(c) == 0){
+                control.imprime("El puerto debe ser un numero");
+                puertoString = "";
+                break;
+            }
+        }
+        if(puertoString == ""){
+            continue;
+        }
+        puerto = stoi(puertoString);
 
         sock = socket(AF_INET, SOCK_STREAM, 0);
         if(sock < 0){
@@ -51,6 +63,7 @@ int main(){
         }
         control.conectar();
 
+        control.imprime("Identificado correctamente\nEscribe -h para mostrar la ayuda");
         pthread_t hiloRead, hiloSend;
         bool *desconectado = new bool(false);
         pthread_create(&hiloRead, NULL, *recibe, (void*)desconectado);

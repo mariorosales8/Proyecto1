@@ -47,6 +47,10 @@ string salaVisible = "Chat público";
         cout << sala << " <<<<<<<<<<<<" << endl;
     }
 
+    void quitaSala(){
+        salaVisible = "";
+    }
+
 
 };
 
@@ -290,6 +294,36 @@ class ControlCliente{
             invitaciones.remove(informacion);
             return mensaje.toString();
         }
+        if(entrada[1] == 'h'){
+            string ayuda = "\n";
+            ayuda.append("Si escribes un mensaje, se enviará a la sala actual\n")
+                .append("Los comandos disponibles son:\n")
+                .append("-p:    Cambia al chat público\n")
+                .append("-p usuario:   Cambia al chat privado con el ususario especificado\n")
+                .append("-s sala:   Cambia a la sala especificada, si no estás en la sala pero si estás invitado, te unes a ella\n")
+                .append("-u:    Muestra los usuarios conectados\n")
+                .append("-uu:   Si estás en una sala, muestra los usuarios en ésta\n")
+                .append("-c nombre:   Crea una sala con el nombre indicado\n")
+                .append("-i usuario1, usuario2,...:   Invita a la sala actual a los usuarios indicados\n")
+                .append("-j:    Te unes a la última sala a la que te invitaron\n")
+                .append("-j sala:  Te unes a la sala especificada si estás invitado\n")
+                .append("-q:    Sales de la sala actual\n")
+                .append("-q sala:   Sales de la sala especificada\n")
+                .append("-ea:   Cambia el estado a ACTIVE\n")
+                .append("-ew:   Cambia el estado a AWAY\n")
+                .append("-eb:   Cambia el estado a BUSY\n")
+                .append("-v:    Muestra las salas a las que te uniste y tus invitaciones pendientes\n")
+                .append("-vs:   Muestra las salas a las que te uniste\n")
+                .append("-vi:   Muestra tus invitaciones pendientes\n")
+                .append("-a:    Muestra la sala actual\n")
+                .append("-d:    Desconectarse\n")
+                .append("-h:    Muestra esta ayuda");
+
+                interfaz.imprime(ayuda);
+                interfaz.quitaSala();
+            return "";
+        }
+
         if(entrada[1] == 'e'){
             if(entrada.length() > 2){
                 switch(entrada[2]){
@@ -343,7 +377,7 @@ class ControlCliente{
         }
 
 
-        interfaz.imprime("Comando no reconocido");
+        interfaz.imprime("Comando no reconocido.\nEscribe -h para mostrar la ayuda");
         return "";
     }
 
