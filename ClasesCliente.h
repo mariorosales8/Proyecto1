@@ -12,8 +12,10 @@ string salaVisible = "Chat público";
  public:
     string lee(bool primeraEntrada){
         string s;
-        if(primeraEntrada)
+        if(primeraEntrada){
             cin.ignore();
+            primeraEntrada = false;
+        }
         getline(cin, s);
         return s;
     }
@@ -21,8 +23,14 @@ string salaVisible = "Chat público";
         return lee(false);
     }
 
+    void imprime(string s, bool saltoDeLinea){
+        if(saltoDeLinea)
+            cout << s << endl;
+        else
+            cout << s;
+    }
     void imprime(string s){
-        cout << s << endl;
+        imprime(s, true);
     }
 
 
@@ -59,8 +67,7 @@ class ControlCliente{
     string ponNombre(){
         Mensaje mensaje;
         mensaje.setTipo("IDENTIFY");
-        mensaje.setAtributo("username", interfaz.lee(primeraEntrada));
-        primeraEntrada = false;
+        mensaje.setAtributo("username", interfaz.lee());
         return mensaje.toString();
     }
 
@@ -117,8 +124,15 @@ class ControlCliente{
         informacion = "";
     }
 
+    void imprime(string s, bool saltoDeLinea){
+        interfaz.imprime(s, saltoDeLinea);
+    }
     void imprime(string s){
-        interfaz.imprime(s);
+        imprime(s, true);
+    }
+
+    string lee(){
+        return interfaz.lee();
     }
 
 
@@ -150,6 +164,38 @@ class ControlCliente{
             }
             mensaje.setTipo("USERS");
             return mensaje.toString();
+        }
+        if(entrada[1] == 'v'){
+            string salida;
+            if(entrada.length() < 3 || entrada[2] != 'i'){
+                salida = "Salas a las que te uniste:";
+                for(string cuarto : salas){
+                    salida += "\n  " + cuarto;
+                }
+                interfaz.imprime(salida);
+            }
+            if(entrada.length() < 3 || entrada[2] != 's'){
+                salida = "Invitaciones pendientes:";
+                for(string invitacion : invitaciones){
+                    salida += "\n  " + invitacion;
+                }
+                interfaz.imprime(salida);
+            }
+            return "";
+        }
+        if(entrada[1] == 'a'){
+            switch(tipoSala){
+                case '-':
+                    interfaz.cambiaSala("Chat público");
+                    break;
+                case 'p':
+                    interfaz.cambiaSala(sala + " (Chat privado)");
+                    break;
+                case 's':
+                    interfaz.cambiaSala(sala + " (Sala)");
+                    break;
+            }
+            return "";
         }
         if(entrada[1] == 'p'){
             if(entrada.length() > 3){

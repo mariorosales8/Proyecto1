@@ -611,5 +611,6 @@ map<string,list<Usuario*>> disconnect(Usuario *cliente){
         salas.remove(sala);
     }
 
+    close(cliente->getSocket());
     return envios;
 }
