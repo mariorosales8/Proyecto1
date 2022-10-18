@@ -10,11 +10,13 @@
 #include <list>
 #include <map>
 #include <algorithm>
+#include <semaphore.h>
 
 using namespace std;
 
 list<Usuario*> clientes;
 list <Sala*> salas;
+sem_t semaforo;
 
 int main(int argc, char *argv[]){
     if(argc <= 1){
@@ -53,6 +55,8 @@ int main(int argc, char *argv[]){
         cout << "Error en el listen" << endl;
         return 0;
     }
+    
+    sem_init(&semaforo, 0, 1);
     while(1){
         new_socket = accept(server_fd, (struct sockaddr*)&address,
                             (socklen_t*)&addrlen);
@@ -86,7 +90,6 @@ void *recibe(void* args){
             cout << buffer << endl;
         }
 
-        map<string,list<Usuario*>> envios;
         envia(ejecutaMensaje(buffer, cliente));
         cout << buffer << endl;
     }
@@ -125,7 +128,9 @@ void recibeIdentificacion(Usuario *cliente){
         desconectarSocket(cliente, "No se pudo identificar");
         cout << buffer << endl;
     }
+    sem_wait(&semaforo);
     envios = identifica(buffer, cliente);
+    sem_post(&semaforo);
     for(auto &envio : envios){
         for(Usuario *destinatario : envio.second){
             if(send(destinatario->getSocket(), envio.first.c_str(),
@@ -188,6 +193,7 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
         envios.insert(pair<string,list<Usuario*>>(mensaje.toString(), destinatarios));
         return envios;
     }
+    sem_wait(&semaforo);
     switch(tipos[mensaje.getTipo()]){
         case PUBLIC_MESSAGE:
             envios = publicMessage(mensaje, cliente);
@@ -239,6 +245,7 @@ map<string,list<Usuario*>> ejecutaMensaje(string json, Usuario *cliente){
             envios.insert(pair<string,list<Usuario*>>(mensaje.toString(), destinatarios));
             break;
     }
+    sem_post(&semaforo);
     return envios;
 }
 
