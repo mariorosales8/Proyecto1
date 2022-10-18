@@ -123,9 +123,9 @@ class ControlCliente{
     }
 
     void warning(Mensaje advertencia){
-        interfaz.imprime("--- " + advertencia.getAtributo("message") + " ---");
         mensajeEnEspera = NINGUNO;
         informacion = "";
+        interfaz.imprime("--- " + advertencia.getAtributo("message") + " ---");
     }
 
     void imprime(string s, bool saltoDeLinea){

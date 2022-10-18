@@ -40,6 +40,8 @@ var NAVTREE =
         [ "Todo", "globals.html", null ],
         [ "Funciones", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Enumeraciones", "globals_enum.html", null ],
+        [ "Valores de enumeraciones", "globals_eval.html", null ],
         [ "defines", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -48,7 +50,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Cliente_8cpp.html"
+"ClasesCliente_8h.html"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

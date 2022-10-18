@@ -9,3 +9,5 @@ executable('Cliente', 'Cliente.cpp', dependencies: [json_lib, pthread])
 
 test1 = executable('PruebaJSON', 'TestMensaje.cpp', dependencies: [catch_lib, json_lib])
 test('JSON', test1)
+
+run_target('docs', command: 'doxygen.sh')

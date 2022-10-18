@@ -1,43 +1,54 @@
 \hypertarget{Cliente_8cpp}{}\doxysection{Referencia del Archivo Cliente.\+cpp}
 \label{Cliente_8cpp}\index{Cliente.cpp@{Cliente.cpp}}
-{\ttfamily \#include \char`\"{}include.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}JSON.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Clases\+Cliente.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$sys/socket.\+h$>$}\newline
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
 \doxysubsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \item 
-void $\ast$ \mbox{\hyperlink{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}{lee}} (void $\ast$args)
+bool \mbox{\hyperlink{Cliente_8cpp_a2c2d050c0e2569638963d9dce25bcb9a}{identifica}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{Cliente_8cpp_ab1089ceff18cc13e403558d24b73e886}{recibe}} (void $\ast$args)
 \item 
 void $\ast$ \mbox{\hyperlink{Cliente_8cpp_acd4faa94985729653880790cedf52e48}{envia}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{Cliente_8cpp_adf9e8679d523b608f933f26f99929517}{ejecuta\+Mensaje}} (string json)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}{sock}}
 \item 
-bool \mbox{\hyperlink{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}{desconectado}}
+\mbox{\hyperlink{classControlCliente}{Control\+Cliente}} \mbox{\hyperlink{Cliente_8cpp_a4a3ae5c7a837ad1b8739cf3e396e3ad2}{control}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Cliente_8cpp_adf9e8679d523b608f933f26f99929517}\label{Cliente_8cpp_adf9e8679d523b608f933f26f99929517}} 
+\index{Cliente.cpp@{Cliente.cpp}!ejecutaMensaje@{ejecutaMensaje}}
+\index{ejecutaMensaje@{ejecutaMensaje}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{ejecutaMensaje()}{ejecutaMensaje()}}
+{\footnotesize\ttfamily void ejecuta\+Mensaje (\begin{DoxyParamCaption}\item[{string}]{json }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Cliente_8cpp_acd4faa94985729653880790cedf52e48}\label{Cliente_8cpp_acd4faa94985729653880790cedf52e48}} 
 \index{Cliente.cpp@{Cliente.cpp}!envia@{envia}}
 \index{envia@{envia}!Cliente.cpp@{Cliente.cpp}}
 \doxysubsubsection{\texorpdfstring{envia()}{envia()}}
 {\footnotesize\ttfamily void$\ast$ envia (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}\label{Cliente_8cpp_abc816673373e9239e089e2a3c7e1de38}} 
-\index{Cliente.cpp@{Cliente.cpp}!lee@{lee}}
-\index{lee@{lee}!Cliente.cpp@{Cliente.cpp}}
-\doxysubsubsection{\texorpdfstring{lee()}{lee()}}
-{\footnotesize\ttfamily void$\ast$ lee (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Cliente_8cpp_a2c2d050c0e2569638963d9dce25bcb9a}\label{Cliente_8cpp_a2c2d050c0e2569638963d9dce25bcb9a}} 
+\index{Cliente.cpp@{Cliente.cpp}!identifica@{identifica}}
+\index{identifica@{identifica}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{identifica()}{identifica()}}
+{\footnotesize\ttfamily bool identifica (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{Cliente_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{Cliente.cpp@{Cliente.cpp}!main@{main}}
@@ -45,14 +56,20 @@ bool \mbox{\hyperlink{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}{desconecta
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{Cliente_8cpp_ab1089ceff18cc13e403558d24b73e886}\label{Cliente_8cpp_ab1089ceff18cc13e403558d24b73e886}} 
+\index{Cliente.cpp@{Cliente.cpp}!recibe@{recibe}}
+\index{recibe@{recibe}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{recibe()}{recibe()}}
+{\footnotesize\ttfamily void$\ast$ recibe (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
 
 
 \doxysubsection{Documentación de las variables}
-\mbox{\Hypertarget{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}\label{Cliente_8cpp_a956ae09011f55fc0490af6041a8f6aa9}} 
-\index{Cliente.cpp@{Cliente.cpp}!desconectado@{desconectado}}
-\index{desconectado@{desconectado}!Cliente.cpp@{Cliente.cpp}}
-\doxysubsubsection{\texorpdfstring{desconectado}{desconectado}}
-{\footnotesize\ttfamily bool desconectado}
+\mbox{\Hypertarget{Cliente_8cpp_a4a3ae5c7a837ad1b8739cf3e396e3ad2}\label{Cliente_8cpp_a4a3ae5c7a837ad1b8739cf3e396e3ad2}} 
+\index{Cliente.cpp@{Cliente.cpp}!control@{control}}
+\index{control@{control}!Cliente.cpp@{Cliente.cpp}}
+\doxysubsubsection{\texorpdfstring{control}{control}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classControlCliente}{Control\+Cliente}} control}
 
 \mbox{\Hypertarget{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}\label{Cliente_8cpp_a5903d0b282fc5eae503de618f896b5e1}} 
 \index{Cliente.cpp@{Cliente.cpp}!sock@{sock}}

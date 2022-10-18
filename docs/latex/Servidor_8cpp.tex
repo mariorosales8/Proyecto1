@@ -1,7 +1,6 @@
 \hypertarget{Servidor_8cpp}{}\doxysection{Referencia del Archivo Servidor.\+cpp}
 \label{Servidor_8cpp}\index{Servidor.cpp@{Servidor.cpp}}
-{\ttfamily \#include \char`\"{}include.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}JSON.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Clases\+Servidor.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
@@ -10,57 +9,187 @@
 {\ttfamily \#include $<$netinet/in.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
-{\ttfamily \#include $<$semaphore.\+h$>$}\newline
 {\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
 \doxysubsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{Servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+int \mbox{\hyperlink{Servidor_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \item 
-void $\ast$ \mbox{\hyperlink{Servidor_8cpp_abc816673373e9239e089e2a3c7e1de38}{lee}} (void $\ast$args)
+void $\ast$ \mbox{\hyperlink{Servidor_8cpp_ab1089ceff18cc13e403558d24b73e886}{recibe}} (void $\ast$args)
 \item 
-void $\ast$ \mbox{\hyperlink{Servidor_8cpp_acd4faa94985729653880790cedf52e48}{envia}} (void $\ast$args)
+void \mbox{\hyperlink{Servidor_8cpp_a4c5ad046e31c453fc6cef6d7fc1b21f7}{envia}} (map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$$>$ envios)
 \item 
-void \mbox{\hyperlink{Servidor_8cpp_a014ca280e8495b2256aedd8576bce5ba}{desconectar}} (int socket)
+void \mbox{\hyperlink{Servidor_8cpp_a6dfe9c0b476e17f0ce0c51cbb8492184}{desconectar\+Socket}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente, string \mbox{\hyperlink{Servidor_8cpp_a69de37534daa92f94fa0029adb6c3099}{message}})
+\item 
+void \mbox{\hyperlink{Servidor_8cpp_a95e939c5a50f2493c0c6152d2de63b26}{recibe\+Identificacion}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a1902dc982e84509ca44a61b86cf320e4}{identifica}} (string json, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a34dc24b92d014fca21187252d265a086}{ejecuta\+Mensaje}} (string json, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a7e02a0da4bfdff41cd744a4611cdeb79}{public\+Message}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a69de37534daa92f94fa0029adb6c3099}{message}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_aec4a9a109347e654fdc0057960cb60d6}{new\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a35d272d0e008d8a1112937f6b22ad163}{invite}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_accc00e6ffe271c473994e3e5e0967f97}{join\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_afb9dc85354ab6ba33e4b21e8595a39ff}{room\+Message}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a89d7c2d0f78ad5982be7e73c5bc90313}{status}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a62bb5569f99e1bf9d45ed09d1694f81f}{users}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_ab83573793d507372ce73948d25118ee6}{room\+Users}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a8ab6ea65e123a6757fa495b75619c968}{leave\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{Servidor_8cpp_a08b5286648f41241a387e5ed8d4546c7}{disconnect}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-list$<$ int $>$ \mbox{\hyperlink{Servidor_8cpp_a55ec032a59eabc3445d176870e2edc07}{clientes}}
+list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ \mbox{\hyperlink{Servidor_8cpp_aaf852d74acb6dfe0870a08074b74fb04}{clientes}}
+\item 
+list$<$ \mbox{\hyperlink{classSala}{Sala}} $\ast$ $>$ \mbox{\hyperlink{Servidor_8cpp_a7e121be0daf9469a35a7ad836b0555c7}{salas}}
+\item 
+sem\+\_\+t \mbox{\hyperlink{Servidor_8cpp_a8b39a0c328d80f7e562205e33a7c170b}{semaforo}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentación de las funciones}
-\mbox{\Hypertarget{Servidor_8cpp_a014ca280e8495b2256aedd8576bce5ba}\label{Servidor_8cpp_a014ca280e8495b2256aedd8576bce5ba}} 
-\index{Servidor.cpp@{Servidor.cpp}!desconectar@{desconectar}}
-\index{desconectar@{desconectar}!Servidor.cpp@{Servidor.cpp}}
-\doxysubsubsection{\texorpdfstring{desconectar()}{desconectar()}}
-{\footnotesize\ttfamily void desconectar (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Servidor_8cpp_a6dfe9c0b476e17f0ce0c51cbb8492184}\label{Servidor_8cpp_a6dfe9c0b476e17f0ce0c51cbb8492184}} 
+\index{Servidor.cpp@{Servidor.cpp}!desconectarSocket@{desconectarSocket}}
+\index{desconectarSocket@{desconectarSocket}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{desconectarSocket()}{desconectarSocket()}}
+{\footnotesize\ttfamily void desconectar\+Socket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente,  }\item[{string}]{message }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Servidor_8cpp_acd4faa94985729653880790cedf52e48}\label{Servidor_8cpp_acd4faa94985729653880790cedf52e48}} 
+\mbox{\Hypertarget{Servidor_8cpp_a08b5286648f41241a387e5ed8d4546c7}\label{Servidor_8cpp_a08b5286648f41241a387e5ed8d4546c7}} 
+\index{Servidor.cpp@{Servidor.cpp}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ disconnect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a34dc24b92d014fca21187252d265a086}\label{Servidor_8cpp_a34dc24b92d014fca21187252d265a086}} 
+\index{Servidor.cpp@{Servidor.cpp}!ejecutaMensaje@{ejecutaMensaje}}
+\index{ejecutaMensaje@{ejecutaMensaje}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{ejecutaMensaje()}{ejecutaMensaje()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ ejecuta\+Mensaje (\begin{DoxyParamCaption}\item[{string}]{json,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a4c5ad046e31c453fc6cef6d7fc1b21f7}\label{Servidor_8cpp_a4c5ad046e31c453fc6cef6d7fc1b21f7}} 
 \index{Servidor.cpp@{Servidor.cpp}!envia@{envia}}
 \index{envia@{envia}!Servidor.cpp@{Servidor.cpp}}
 \doxysubsubsection{\texorpdfstring{envia()}{envia()}}
-{\footnotesize\ttfamily void$\ast$ envia (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void envia (\begin{DoxyParamCaption}\item[{map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$$>$}]{envios }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Servidor_8cpp_abc816673373e9239e089e2a3c7e1de38}\label{Servidor_8cpp_abc816673373e9239e089e2a3c7e1de38}} 
-\index{Servidor.cpp@{Servidor.cpp}!lee@{lee}}
-\index{lee@{lee}!Servidor.cpp@{Servidor.cpp}}
-\doxysubsubsection{\texorpdfstring{lee()}{lee()}}
-{\footnotesize\ttfamily void$\ast$ lee (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Servidor_8cpp_a1902dc982e84509ca44a61b86cf320e4}\label{Servidor_8cpp_a1902dc982e84509ca44a61b86cf320e4}} 
+\index{Servidor.cpp@{Servidor.cpp}!identifica@{identifica}}
+\index{identifica@{identifica}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{identifica()}{identifica()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ identifica (\begin{DoxyParamCaption}\item[{string}]{json,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{Servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{Servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\mbox{\Hypertarget{Servidor_8cpp_a35d272d0e008d8a1112937f6b22ad163}\label{Servidor_8cpp_a35d272d0e008d8a1112937f6b22ad163}} 
+\index{Servidor.cpp@{Servidor.cpp}!invite@{invite}}
+\index{invite@{invite}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{invite()}{invite()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ invite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_accc00e6ffe271c473994e3e5e0967f97}\label{Servidor_8cpp_accc00e6ffe271c473994e3e5e0967f97}} 
+\index{Servidor.cpp@{Servidor.cpp}!joinRoom@{joinRoom}}
+\index{joinRoom@{joinRoom}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{joinRoom()}{joinRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ join\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a8ab6ea65e123a6757fa495b75619c968}\label{Servidor_8cpp_a8ab6ea65e123a6757fa495b75619c968}} 
+\index{Servidor.cpp@{Servidor.cpp}!leaveRoom@{leaveRoom}}
+\index{leaveRoom@{leaveRoom}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{leaveRoom()}{leaveRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ leave\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{Servidor_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
 \index{Servidor.cpp@{Servidor.cpp}!main@{main}}
 \index{main@{main}!Servidor.cpp@{Servidor.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a69de37534daa92f94fa0029adb6c3099}\label{Servidor_8cpp_a69de37534daa92f94fa0029adb6c3099}} 
+\index{Servidor.cpp@{Servidor.cpp}!message@{message}}
+\index{message@{message}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_aec4a9a109347e654fdc0057960cb60d6}\label{Servidor_8cpp_aec4a9a109347e654fdc0057960cb60d6}} 
+\index{Servidor.cpp@{Servidor.cpp}!newRoom@{newRoom}}
+\index{newRoom@{newRoom}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{newRoom()}{newRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ new\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a7e02a0da4bfdff41cd744a4611cdeb79}\label{Servidor_8cpp_a7e02a0da4bfdff41cd744a4611cdeb79}} 
+\index{Servidor.cpp@{Servidor.cpp}!publicMessage@{publicMessage}}
+\index{publicMessage@{publicMessage}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{publicMessage()}{publicMessage()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ public\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_ab1089ceff18cc13e403558d24b73e886}\label{Servidor_8cpp_ab1089ceff18cc13e403558d24b73e886}} 
+\index{Servidor.cpp@{Servidor.cpp}!recibe@{recibe}}
+\index{recibe@{recibe}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{recibe()}{recibe()}}
+{\footnotesize\ttfamily void$\ast$ recibe (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a95e939c5a50f2493c0c6152d2de63b26}\label{Servidor_8cpp_a95e939c5a50f2493c0c6152d2de63b26}} 
+\index{Servidor.cpp@{Servidor.cpp}!recibeIdentificacion@{recibeIdentificacion}}
+\index{recibeIdentificacion@{recibeIdentificacion}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{recibeIdentificacion()}{recibeIdentificacion()}}
+{\footnotesize\ttfamily void recibe\+Identificacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_afb9dc85354ab6ba33e4b21e8595a39ff}\label{Servidor_8cpp_afb9dc85354ab6ba33e4b21e8595a39ff}} 
+\index{Servidor.cpp@{Servidor.cpp}!roomMessage@{roomMessage}}
+\index{roomMessage@{roomMessage}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{roomMessage()}{roomMessage()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ room\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_ab83573793d507372ce73948d25118ee6}\label{Servidor_8cpp_ab83573793d507372ce73948d25118ee6}} 
+\index{Servidor.cpp@{Servidor.cpp}!roomUsers@{roomUsers}}
+\index{roomUsers@{roomUsers}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{roomUsers()}{roomUsers()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ room\+Users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a89d7c2d0f78ad5982be7e73c5bc90313}\label{Servidor_8cpp_a89d7c2d0f78ad5982be7e73c5bc90313}} 
+\index{Servidor.cpp@{Servidor.cpp}!status@{status}}
+\index{status@{status}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Servidor_8cpp_a62bb5569f99e1bf9d45ed09d1694f81f}\label{Servidor_8cpp_a62bb5569f99e1bf9d45ed09d1694f81f}} 
+\index{Servidor.cpp@{Servidor.cpp}!users@{users}}
+\index{users@{users}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{users()}{users()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Documentación de las variables}
-\mbox{\Hypertarget{Servidor_8cpp_a55ec032a59eabc3445d176870e2edc07}\label{Servidor_8cpp_a55ec032a59eabc3445d176870e2edc07}} 
+\mbox{\Hypertarget{Servidor_8cpp_aaf852d74acb6dfe0870a08074b74fb04}\label{Servidor_8cpp_aaf852d74acb6dfe0870a08074b74fb04}} 
 \index{Servidor.cpp@{Servidor.cpp}!clientes@{clientes}}
 \index{clientes@{clientes}!Servidor.cpp@{Servidor.cpp}}
 \doxysubsubsection{\texorpdfstring{clientes}{clientes}}
-{\footnotesize\ttfamily list$<$int$>$ clientes}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ clientes}
+
+\mbox{\Hypertarget{Servidor_8cpp_a7e121be0daf9469a35a7ad836b0555c7}\label{Servidor_8cpp_a7e121be0daf9469a35a7ad836b0555c7}} 
+\index{Servidor.cpp@{Servidor.cpp}!salas@{salas}}
+\index{salas@{salas}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{salas}{salas}}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{classSala}{Sala}}$\ast$$>$ salas}
+
+\mbox{\Hypertarget{Servidor_8cpp_a8b39a0c328d80f7e562205e33a7c170b}\label{Servidor_8cpp_a8b39a0c328d80f7e562205e33a7c170b}} 
+\index{Servidor.cpp@{Servidor.cpp}!semaforo@{semaforo}}
+\index{semaforo@{semaforo}!Servidor.cpp@{Servidor.cpp}}
+\doxysubsubsection{\texorpdfstring{semaforo}{semaforo}}
+{\footnotesize\ttfamily sem\+\_\+t semaforo}
 

@@ -88,8 +88,7 @@ $(document).ready(function(){initNavTree('Servidor_8cpp.html',''); initResizable
 <div class="title">Referencia del Archivo Servidor.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="include_8h_source.html">include.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="JSON_8cpp.html">JSON.cpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="ClasesServidor_8h_source.html">ClasesServidor.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -98,37 +97,99 @@ $(document).ready(function(){initNavTree('Servidor_8cpp.html',''); initResizable
 <code>#include &lt;netinet/in.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
-<code>#include &lt;semaphore.h&gt;</code><br />
 <code>#include &lt;list&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;semaphore.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc816673373e9239e089e2a3c7e1de38"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#abc816673373e9239e089e2a3c7e1de38">lee</a> (void *args)</td></tr>
-<tr class="separator:abc816673373e9239e089e2a3c7e1de38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd4faa94985729653880790cedf52e48"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#acd4faa94985729653880790cedf52e48">envia</a> (void *args)</td></tr>
-<tr class="separator:acd4faa94985729653880790cedf52e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a014ca280e8495b2256aedd8576bce5ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a014ca280e8495b2256aedd8576bce5ba">desconectar</a> (int socket)</td></tr>
-<tr class="separator:a014ca280e8495b2256aedd8576bce5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1089ceff18cc13e403558d24b73e886"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#ab1089ceff18cc13e403558d24b73e886">recibe</a> (void *args)</td></tr>
+<tr class="separator:ab1089ceff18cc13e403558d24b73e886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5ad046e31c453fc6cef6d7fc1b21f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a4c5ad046e31c453fc6cef6d7fc1b21f7">envia</a> (map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt;&gt; envios)</td></tr>
+<tr class="separator:a4c5ad046e31c453fc6cef6d7fc1b21f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dfe9c0b476e17f0ce0c51cbb8492184"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a6dfe9c0b476e17f0ce0c51cbb8492184">desconectarSocket</a> (<a class="el" href="classUsuario.html">Usuario</a> *cliente, string <a class="el" href="Servidor_8cpp.html#a69de37534daa92f94fa0029adb6c3099">message</a>)</td></tr>
+<tr class="separator:a6dfe9c0b476e17f0ce0c51cbb8492184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e939c5a50f2493c0c6152d2de63b26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a95e939c5a50f2493c0c6152d2de63b26">recibeIdentificacion</a> (<a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a95e939c5a50f2493c0c6152d2de63b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1902dc982e84509ca44a61b86cf320e4"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a1902dc982e84509ca44a61b86cf320e4">identifica</a> (string json, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a1902dc982e84509ca44a61b86cf320e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34dc24b92d014fca21187252d265a086"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a34dc24b92d014fca21187252d265a086">ejecutaMensaje</a> (string json, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a34dc24b92d014fca21187252d265a086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e02a0da4bfdff41cd744a4611cdeb79"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a7e02a0da4bfdff41cd744a4611cdeb79">publicMessage</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a7e02a0da4bfdff41cd744a4611cdeb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69de37534daa92f94fa0029adb6c3099"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a69de37534daa92f94fa0029adb6c3099">message</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a69de37534daa92f94fa0029adb6c3099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec4a9a109347e654fdc0057960cb60d6"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#aec4a9a109347e654fdc0057960cb60d6">newRoom</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:aec4a9a109347e654fdc0057960cb60d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35d272d0e008d8a1112937f6b22ad163"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a35d272d0e008d8a1112937f6b22ad163">invite</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a35d272d0e008d8a1112937f6b22ad163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc00e6ffe271c473994e3e5e0967f97"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#accc00e6ffe271c473994e3e5e0967f97">joinRoom</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:accc00e6ffe271c473994e3e5e0967f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9dc85354ab6ba33e4b21e8595a39ff"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#afb9dc85354ab6ba33e4b21e8595a39ff">roomMessage</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:afb9dc85354ab6ba33e4b21e8595a39ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89d7c2d0f78ad5982be7e73c5bc90313"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a89d7c2d0f78ad5982be7e73c5bc90313">status</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a89d7c2d0f78ad5982be7e73c5bc90313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62bb5569f99e1bf9d45ed09d1694f81f"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a62bb5569f99e1bf9d45ed09d1694f81f">users</a> (<a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a62bb5569f99e1bf9d45ed09d1694f81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83573793d507372ce73948d25118ee6"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#ab83573793d507372ce73948d25118ee6">roomUsers</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:ab83573793d507372ce73948d25118ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab6ea65e123a6757fa495b75619c968"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a8ab6ea65e123a6757fa495b75619c968">leaveRoom</a> (<a class="el" href="classMensaje.html">Mensaje</a> mensaje, <a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a8ab6ea65e123a6757fa495b75619c968"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b5286648f41241a387e5ed8d4546c7"><td class="memItemLeft" align="right" valign="top">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a08b5286648f41241a387e5ed8d4546c7">disconnect</a> (<a class="el" href="classUsuario.html">Usuario</a> *cliente)</td></tr>
+<tr class="separator:a08b5286648f41241a387e5ed8d4546c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a55ec032a59eabc3445d176870e2edc07"><td class="memItemLeft" align="right" valign="top">list&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a55ec032a59eabc3445d176870e2edc07">clientes</a></td></tr>
-<tr class="separator:a55ec032a59eabc3445d176870e2edc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf852d74acb6dfe0870a08074b74fb04"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#aaf852d74acb6dfe0870a08074b74fb04">clientes</a></td></tr>
+<tr class="separator:aaf852d74acb6dfe0870a08074b74fb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e121be0daf9469a35a7ad836b0555c7"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSala.html">Sala</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a></td></tr>
+<tr class="separator:a7e121be0daf9469a35a7ad836b0555c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b39a0c328d80f7e562205e33a7c170b"><td class="memItemLeft" align="right" valign="top">sem_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Servidor_8cpp.html#a8b39a0c328d80f7e562205e33a7c170b">semaforo</a></td></tr>
+<tr class="separator:a8b39a0c328d80f7e562205e33a7c170b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de las funciones</h2>
-<a id="a014ca280e8495b2256aedd8576bce5ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a014ca280e8495b2256aedd8576bce5ba">&#9670;&nbsp;</a></span>desconectar()</h2>
+<a id="a6dfe9c0b476e17f0ce0c51cbb8492184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dfe9c0b476e17f0ce0c51cbb8492184">&#9670;&nbsp;</a></span>desconectarSocket()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void desconectar </td>
+          <td class="memname">void desconectarSocket </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08b5286648f41241a387e5ed8d4546c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b5286648f41241a387e5ed8d4546c7">&#9670;&nbsp;</a></span>disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; disconnect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,17 +197,45 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="acd4faa94985729653880790cedf52e48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd4faa94985729653880790cedf52e48">&#9670;&nbsp;</a></span>envia()</h2>
+<a id="a34dc24b92d014fca21187252d265a086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34dc24b92d014fca21187252d265a086">&#9670;&nbsp;</a></span>ejecutaMensaje()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* envia </td>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; ejecutaMensaje </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c5ad046e31c453fc6cef6d7fc1b21f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5ad046e31c453fc6cef6d7fc1b21f7">&#9670;&nbsp;</a></span>envia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void envia </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, list&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt;&gt;&#160;</td>
+          <td class="paramname"><em>envios</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -154,26 +243,120 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="abc816673373e9239e089e2a3c7e1de38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc816673373e9239e089e2a3c7e1de38">&#9670;&nbsp;</a></span>lee()</h2>
+<a id="a1902dc982e84509ca44a61b86cf320e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1902dc982e84509ca44a61b86cf320e4">&#9670;&nbsp;</a></span>identifica()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* lee </td>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; identifica </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+<a id="a35d272d0e008d8a1112937f6b22ad163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d272d0e008d8a1112937f6b22ad163">&#9670;&nbsp;</a></span>invite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; invite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accc00e6ffe271c473994e3e5e0967f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accc00e6ffe271c473994e3e5e0967f97">&#9670;&nbsp;</a></span>joinRoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; joinRoom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ab6ea65e123a6757fa495b75619c968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab6ea65e123a6757fa495b75619c968">&#9670;&nbsp;</a></span>leaveRoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; leaveRoom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +364,240 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69de37534daa92f94fa0029adb6c3099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69de37534daa92f94fa0029adb6c3099">&#9670;&nbsp;</a></span>message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec4a9a109347e654fdc0057960cb60d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4a9a109347e654fdc0057960cb60d6">&#9670;&nbsp;</a></span>newRoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; newRoom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e02a0da4bfdff41cd744a4611cdeb79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e02a0da4bfdff41cd744a4611cdeb79">&#9670;&nbsp;</a></span>publicMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; publicMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1089ceff18cc13e403558d24b73e886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1089ceff18cc13e403558d24b73e886">&#9670;&nbsp;</a></span>recibe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* recibe </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95e939c5a50f2493c0c6152d2de63b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e939c5a50f2493c0c6152d2de63b26">&#9670;&nbsp;</a></span>recibeIdentificacion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void recibeIdentificacion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb9dc85354ab6ba33e4b21e8595a39ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9dc85354ab6ba33e4b21e8595a39ff">&#9670;&nbsp;</a></span>roomMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; roomMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab83573793d507372ce73948d25118ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab83573793d507372ce73948d25118ee6">&#9670;&nbsp;</a></span>roomUsers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; roomUsers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89d7c2d0f78ad5982be7e73c5bc90313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d7c2d0f78ad5982be7e73c5bc90313">&#9670;&nbsp;</a></span>status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; status </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMensaje.html">Mensaje</a>&#160;</td>
+          <td class="paramname"><em>mensaje</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62bb5569f99e1bf9d45ed09d1694f81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62bb5569f99e1bf9d45ed09d1694f81f">&#9670;&nbsp;</a></span>users()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string,list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; &gt; users </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classUsuario.html">Usuario</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -190,14 +606,42 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentación de las variables</h2>
-<a id="a55ec032a59eabc3445d176870e2edc07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55ec032a59eabc3445d176870e2edc07">&#9670;&nbsp;</a></span>clientes</h2>
+<a id="aaf852d74acb6dfe0870a08074b74fb04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf852d74acb6dfe0870a08074b74fb04">&#9670;&nbsp;</a></span>clientes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;int&gt; clientes</td>
+          <td class="memname">list&lt;<a class="el" href="classUsuario.html">Usuario</a>*&gt; clientes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e121be0daf9469a35a7ad836b0555c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e121be0daf9469a35a7ad836b0555c7">&#9670;&nbsp;</a></span>salas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classSala.html">Sala</a>*&gt; salas</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b39a0c328d80f7e562205e33a7c170b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b39a0c328d80f7e562205e33a7c170b">&#9670;&nbsp;</a></span>semaforo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sem_t semaforo</td>
         </tr>
       </table>
 </div><div class="memdoc">
