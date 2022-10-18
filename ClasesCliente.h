@@ -161,10 +161,14 @@ class ControlCliente{
             return mensaje.toString();
         }
         if(entrada[1] == 'u'){
-            if(tipoSala == 's' && entrada.length() > 2){
-                mensaje.setTipo("ROOM_USERS");
-                mensaje.setAtributo("roomname", sala);
-                return mensaje.toString();
+            if(entrada.length() > 2){
+                if(tipoSala == 's'){
+                    mensaje.setTipo("ROOM_USERS");
+                    mensaje.setAtributo("roomname", sala);
+                    return mensaje.toString();
+                }
+                interfaz.imprime("No estás en una sala");
+                return "";
             }
             mensaje.setTipo("USERS");
             return mensaje.toString();
@@ -288,7 +292,7 @@ class ControlCliente{
                 informacion = entrada.substr(3);
             }else{
                 informacion = invitaciones.back();
-                interfaz.imprime("Entrando a la sala " + informacion + "...");
+                interfaz.imprime("Uniéndose a " + informacion + "...");
             }
             mensaje.setAtributo("roomname", informacion);
             invitaciones.remove(informacion);

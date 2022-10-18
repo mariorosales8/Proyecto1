@@ -25,6 +25,10 @@ int main(){
         ip = inet_ntoa(*(struct in_addr*)gethostbyname(control.lee().c_str())->h_addr_list[0]);
         control.imprime("Puerto: ", false);
         string puertoString = control.lee();
+        if(puertoString.size() > 9){
+                cout << "El puerto es demasiado largo" << endl;
+                continue;
+            }
         for(char c :puertoString){
             if(isdigit(c) == 0){
                 control.imprime("El puerto debe ser un numero");
@@ -63,7 +67,7 @@ int main(){
         }
         control.conectar();
 
-        control.imprime("Identificado correctamente\nEscribe -h para mostrar la ayuda");
+        control.imprime("\nIdentificado correctamente\nEscribe -h para mostrar la ayuda");
         pthread_t hiloRead, hiloSend;
         bool *desconectado = new bool(false);
         pthread_create(&hiloRead, NULL, *recibe, (void*)desconectado);
