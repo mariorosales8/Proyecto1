@@ -7,7 +7,7 @@
 using namespace Json;
 using namespace std;
 
-TEST_CASE("Mensaje", "Mensaje"){
+TEST_CASE(){
     Mensaje m;
     m.setTipo("Prueba");
     m.setAtributo("nombre", "Juan");

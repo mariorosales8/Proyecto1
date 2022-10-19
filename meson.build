@@ -6,8 +6,11 @@ pthread = cc.find_library('pthread', required: true)
 
 executable('Servidor', 'Servidor.cpp', dependencies: [json_lib, pthread])
 executable('Cliente', 'Cliente.cpp', dependencies: [json_lib, pthread])
-
 test1 = executable('PruebaJSON', 'TestMensaje.cpp', dependencies: [catch_lib, json_lib])
-test('JSON', test1)
+test2 = executable('PruebaSala', 'TestSala.cpp', dependencies: [catch_lib])
+
+test('Mensajes', test1)
+test('Salas', test2)
 
 run_target('docs', command: 'doxygen.sh')
+
