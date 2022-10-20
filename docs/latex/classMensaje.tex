@@ -1,0 +1,188 @@
+\hypertarget{classMensaje}{}\doxysection{Referencia de la Clase Mensaje}
+\label{classMensaje}\index{Mensaje@{Mensaje}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMensaje_a7b8b4ca08f400fef32eaffeec00f65b3}{Mensaje}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMensaje_ae5ec0f835561cbdcddac5feb5d86b55f}{Mensaje}} (string json\+String)
+\begin{DoxyCompactList}\small\item\em Constructor por JSON. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classMensaje_a6eb1f1bf81ae674279dd782394275e95}{get\+Tipo}} ()
+\item 
+void \mbox{\hyperlink{classMensaje_a8409979e1aad965bfe5f155a1dfe18d2}{set\+Tipo}} (string \mbox{\hyperlink{tipos_8h_a030a181134e163cb2a9e98e83810bb54}{tipo}})
+\item 
+string \mbox{\hyperlink{classMensaje_ac96e090b08c940e16dc1140bf6656589}{get\+Atributo}} (string llave)
+\begin{DoxyCompactList}\small\item\em Obtiene un atributo del mensaje. \end{DoxyCompactList}\item 
+list$<$ string $>$ \mbox{\hyperlink{classMensaje_aa766d6b7e919d1c2127ce545fb223b97}{get\+Lista}} (string llave)
+\begin{DoxyCompactList}\small\item\em Obtiene la lista de elementos de un atributo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensaje_afdcb1ab02941e88f4f8e61f449c2b9c4}{set\+Atributo}} (string llave, string valor)
+\begin{DoxyCompactList}\small\item\em Agrega un atributo al mensaje. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensaje_a4d8ba7f2663ba4499bcb472f804788e0}{set\+Lista}} (string llave, list$<$ string $>$ lista)
+\begin{DoxyCompactList}\small\item\em Agrega una lista al mensaje. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensaje_a9e12be2a2704540c7e903b7b26a558b7}{set\+Lista}} (string llave, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ lista)
+\begin{DoxyCompactList}\small\item\em Agrega una lista al mensaje. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classMensaje_a14f713fcace1028ca96ecb5707e3b6bd}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Convierte el mensaje a un string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMensaje_a79d34b891338946cd2e4de4703b05928}{es\+Valido}} ()
+\begin{DoxyCompactList}\small\item\em Comprueba que el mensaje sea válido. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classMensaje_a7b8b4ca08f400fef32eaffeec00f65b3}\label{classMensaje_a7b8b4ca08f400fef32eaffeec00f65b3}} 
+\index{Mensaje@{Mensaje}!Mensaje@{Mensaje}}
+\index{Mensaje@{Mensaje}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{Mensaje()}{Mensaje()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mensaje\+::\+Mensaje (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+\mbox{\Hypertarget{classMensaje_ae5ec0f835561cbdcddac5feb5d86b55f}\label{classMensaje_ae5ec0f835561cbdcddac5feb5d86b55f}} 
+\index{Mensaje@{Mensaje}!Mensaje@{Mensaje}}
+\index{Mensaje@{Mensaje}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{Mensaje()}{Mensaje()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mensaje\+::\+Mensaje (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por JSON. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em json\+String} & Un string en formato JSON \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classMensaje_a79d34b891338946cd2e4de4703b05928}\label{classMensaje_a79d34b891338946cd2e4de4703b05928}} 
+\index{Mensaje@{Mensaje}!esValido@{esValido}}
+\index{esValido@{esValido}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{esValido()}{esValido()}}
+{\footnotesize\ttfamily bool Mensaje\+::es\+Valido (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comprueba que el mensaje sea válido. 
+
+\begin{DoxyReturn}{Devuelve}
+true si el tipo es distinto de vacío, false en otro caso 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMensaje_ac96e090b08c940e16dc1140bf6656589}\label{classMensaje_ac96e090b08c940e16dc1140bf6656589}} 
+\index{Mensaje@{Mensaje}!getAtributo@{getAtributo}}
+\index{getAtributo@{getAtributo}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{getAtributo()}{getAtributo()}}
+{\footnotesize\ttfamily string Mensaje\+::get\+Atributo (\begin{DoxyParamCaption}\item[{string}]{llave }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un atributo del mensaje. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em llave} & La llave del atributo que se quiere obtener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string El atributo del mensaje 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMensaje_aa766d6b7e919d1c2127ce545fb223b97}\label{classMensaje_aa766d6b7e919d1c2127ce545fb223b97}} 
+\index{Mensaje@{Mensaje}!getLista@{getLista}}
+\index{getLista@{getLista}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{getLista()}{getLista()}}
+{\footnotesize\ttfamily list$<$string$>$ Mensaje\+::get\+Lista (\begin{DoxyParamCaption}\item[{string}]{llave }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la lista de elementos de un atributo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em llave} & La llave del atributo que se quiere obtener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+list$<$string$>$ La lista de elementos si el atributo es una lista, una lista vacía si no lo es 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMensaje_a6eb1f1bf81ae674279dd782394275e95}\label{classMensaje_a6eb1f1bf81ae674279dd782394275e95}} 
+\index{Mensaje@{Mensaje}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily string Mensaje\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMensaje_afdcb1ab02941e88f4f8e61f449c2b9c4}\label{classMensaje_afdcb1ab02941e88f4f8e61f449c2b9c4}} 
+\index{Mensaje@{Mensaje}!setAtributo@{setAtributo}}
+\index{setAtributo@{setAtributo}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{setAtributo()}{setAtributo()}}
+{\footnotesize\ttfamily void Mensaje\+::set\+Atributo (\begin{DoxyParamCaption}\item[{string}]{llave,  }\item[{string}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un atributo al mensaje. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em llave} & La llave en la que se quiere agregar el atributo \\
+\hline
+{\em valor} & El valor del atributo que se quiere agregar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMensaje_a4d8ba7f2663ba4499bcb472f804788e0}\label{classMensaje_a4d8ba7f2663ba4499bcb472f804788e0}} 
+\index{Mensaje@{Mensaje}!setLista@{setLista}}
+\index{setLista@{setLista}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{setLista()}{setLista()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Mensaje\+::set\+Lista (\begin{DoxyParamCaption}\item[{string}]{llave,  }\item[{list$<$ string $>$}]{lista }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega una lista al mensaje. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em llave} & La llave en la que se quiere agregar la lista \\
+\hline
+{\em lista} & La lista de strings que se quiere agregar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMensaje_a9e12be2a2704540c7e903b7b26a558b7}\label{classMensaje_a9e12be2a2704540c7e903b7b26a558b7}} 
+\index{Mensaje@{Mensaje}!setLista@{setLista}}
+\index{setLista@{setLista}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{setLista()}{setLista()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Mensaje\+::set\+Lista (\begin{DoxyParamCaption}\item[{string}]{llave,  }\item[{list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$}]{lista }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega una lista al mensaje. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em llave} & La llave en la que se quiere agregar la lista \\
+\hline
+{\em lista} & La lista de usuarios que se quiere agregar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMensaje_a8409979e1aad965bfe5f155a1dfe18d2}\label{classMensaje_a8409979e1aad965bfe5f155a1dfe18d2}} 
+\index{Mensaje@{Mensaje}!setTipo@{setTipo}}
+\index{setTipo@{setTipo}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{setTipo()}{setTipo()}}
+{\footnotesize\ttfamily void Mensaje\+::set\+Tipo (\begin{DoxyParamCaption}\item[{string}]{tipo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMensaje_a14f713fcace1028ca96ecb5707e3b6bd}\label{classMensaje_a14f713fcace1028ca96ecb5707e3b6bd}} 
+\index{Mensaje@{Mensaje}!toString@{toString}}
+\index{toString@{toString}!Mensaje@{Mensaje}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily string Mensaje\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convierte el mensaje a un string. 
+
+\begin{DoxyReturn}{Devuelve}
+string El mensaje en formato json 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Mensaje_8cpp}{Mensaje.\+cpp}}\end{DoxyCompactItemize}

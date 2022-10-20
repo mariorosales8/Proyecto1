@@ -300,7 +300,7 @@ class ControlCliente{
         }
         if(entrada[1] == 'h'){
             string ayuda = "\n";
-            ayuda.append("Si escribes un mensaje, se enviará a la sala actual\n")
+            ayuda.append("Si escribes un mensaje que no sea un comando, se enviará a la sala actual\n")
                 .append("Los comandos disponibles son:\n")
                 .append("-p:    Cambia al chat público\n")
                 .append("-p usuario:   Cambia al chat privado con el ususario especificado\n")

@@ -8,6 +8,7 @@ var files_dup =
     ] ],
     [ "Servidor.cpp", "Servidor_8cpp.html", "Servidor_8cpp" ],
     [ "TestMensaje.cpp", "TestMensaje_8cpp.html", "TestMensaje_8cpp" ],
+    [ "TestSala.cpp", "TestSala_8cpp.html", "TestSala_8cpp" ],
     [ "tipos.h", "tipos_8h.html", "tipos_8h" ],
     [ "Usuario.cpp", "Usuario_8cpp.html", [
       [ "Usuario", "classUsuario.html", "classUsuario" ]

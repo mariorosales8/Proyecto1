@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Chat: Fichero Fuente ClasesCliente.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Chat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('ClasesCliente_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ClasesCliente.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ClasesCliente_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Mensaje_8cpp.html">Mensaje.cpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tipos_8h.html">tipos.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classInterfaz.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInterfaz.html">Interfaz</a>{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">string</span> salaVisible = <span class="stringliteral">&quot;Chat público&quot;</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">   13</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">lee</a>(<span class="keywordtype">bool</span> primeraEntrada){</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">string</span> s;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">if</span>(primeraEntrada){</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            cin.ignore();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            primeraEntrada = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        getline(cin, s);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classInterfaz.html#a2ffd73fd4e21c664617ab8273787497d">   22</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classInterfaz.html#a2ffd73fd4e21c664617ab8273787497d">lee</a>(){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> lee(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="keywordtype">string</span> s, <span class="keywordtype">bool</span> saltoDeLinea){</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span>(saltoDeLinea)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            cout &lt;&lt; s &lt;&lt; endl;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            cout &lt;&lt; s;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classInterfaz.html#a7e0a275591f056686d2bedce877bbadc">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInterfaz.html#a7e0a275591f056686d2bedce877bbadc">imprime</a>(<span class="keywordtype">string</span> s){</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        imprime(s, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">   37</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">mensaje</a>(<span class="keywordtype">string</span> mensaje, <span class="keywordtype">string</span> sala){</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>(salaVisible != sala){</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            salaVisible = sala;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            cout &lt;&lt; <span class="stringliteral">&quot;// &quot;</span> &lt;&lt; sala &lt;&lt; <span class="stringliteral">&quot; //&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        cout &lt;&lt; mensaje &lt;&lt; endl;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(<span class="keywordtype">string</span> sala){</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        salaVisible = sala;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        cout &lt;&lt; sala &lt;&lt; <span class="stringliteral">&quot; &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classInterfaz.html#aa918d381191100a84008a0e953b42407">   50</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInterfaz.html#aa918d381191100a84008a0e953b42407">quitaSala</a>(){</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        salaVisible = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classControlCliente.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="classControlCliente.html">ControlCliente</a>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classInterfaz.html">Interfaz</a> interfaz;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> desconectado;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> primeraEntrada;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">char</span> tipoSala = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">string</span> sala;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    list&lt;string&gt; <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    list&lt;string&gt; invitaciones;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54">tipo</a> mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea">NINGUNO</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">string</span> informacion;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classControlCliente.html#a66164c1ac02c7898db3c6123bd5663e0">   71</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classControlCliente.html#a66164c1ac02c7898db3c6123bd5663e0">ponNombre</a>(){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classMensaje.html">Mensaje</a> mensaje;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;IDENTIFY&quot;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>, interfaz.<a class="code" href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">lee</a>());</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classControlCliente.html#a402e071670c4a5fe30889d69ef184c1f">   78</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a402e071670c4a5fe30889d69ef184c1f">desconectar</a>(){</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        desconectado = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        primeraEntrada = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        tipoSala = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        sala = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.clear();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        invitaciones.clear();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea">NINGUNO</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        informacion = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classControlCliente.html#a5daadc841b60dac87632f47dc8938e1c">   88</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a5daadc841b60dac87632f47dc8938e1c">conectar</a>(){</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        desconectado = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classControlCliente.html#a94f921b95ea36b417db85579d0724e19">   91</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classControlCliente.html#a94f921b95ea36b417db85579d0724e19">estaDesconectado</a>(){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> desconectado;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classControlCliente.html#a15f0c2bb53797a045af43af9467cb8d4">   95</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a15f0c2bb53797a045af43af9467cb8d4">info</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span>(mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>) == <span class="stringliteral">&quot;success&quot;</span>){</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">switch</span>(mensajeEnEspera){</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a6d3f5998222a9381b95768ee044074ba">JOIN_ROOM</a>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.push_back(informacion);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a31ff1c6870ac8661e875de875a393517">JOINED_ROOM</a>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.push_back(informacion);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    invitaciones.remove(informacion);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    tipoSala = <span class="charliteral">&#39;s&#39;</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    sala = informacion;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(informacion + <span class="stringliteral">&quot; (Sala)&quot;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a0389f7fb81b56a6ce1541a33d4c94e84">NEW_ROOM</a>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.push_back(informacion);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    tipoSala = <span class="charliteral">&#39;s&#39;</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    sala = informacion;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(informacion + <span class="stringliteral">&quot; (Sala)&quot;</span>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea">NINGUNO</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            informacion = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classControlCliente.html#aef195601a35801b85b82a06e9e130395">  125</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#aef195601a35801b85b82a06e9e130395">warning</a>(<a class="code" href="classMensaje.html">Mensaje</a> advertencia){</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea">NINGUNO</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        informacion = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + advertencia.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>) + <span class="stringliteral">&quot; ---&quot;</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classControlCliente.html#a048cc1061d659df38a4397e08198dace">  131</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a048cc1061d659df38a4397e08198dace">imprime</a>(<span class="keywordtype">string</span> s, <span class="keywordtype">bool</span> saltoDeLinea){</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(s, saltoDeLinea);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classControlCliente.html#a9edc7d7dd72ce666e48f8aea0124fcf3">  134</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a9edc7d7dd72ce666e48f8aea0124fcf3">imprime</a>(<span class="keywordtype">string</span> s){</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        imprime(s, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classControlCliente.html#a07a729b6a24e614a220426237c5cf49f">  138</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classControlCliente.html#a07a729b6a24e614a220426237c5cf49f">lee</a>(){</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">return</span> interfaz.<a class="code" href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">lee</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classControlCliente.html#a40210379947236da57c6a6a453162d7c">  143</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classControlCliente.html#a40210379947236da57c6a6a453162d7c">escribeComando</a>(){</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        String entrada = interfaz.<a class="code" href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">lee</a>();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="classMensaje.html">Mensaje</a> mensaje;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">if</span>(entrada.empty() || entrada.front() != <span class="charliteral">&#39;-&#39;</span>){</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">if</span>(tipoSala == <span class="charliteral">&#39;p&#39;</span>){</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;MESSAGE&quot;</span>);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>, sala);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>, entrada);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">if</span>(tipoSala == <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;ROOM_MESSAGE&quot;</span>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, sala);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>, entrada);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;PUBLIC_MESSAGE&quot;</span>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>, entrada);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;u&#39;</span>){</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 2){</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="keywordflow">if</span>(tipoSala == <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;ROOM_USERS&quot;</span>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, sala);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                    <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No estás en una sala&quot;</span>);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;USERS&quot;</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;v&#39;</span>){</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordtype">string</span> salida;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &lt; 3 || entrada[2] != <span class="charliteral">&#39;i&#39;</span>){</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                salida = <span class="stringliteral">&quot;Salas a las que te uniste:&quot;</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">string</span> cuarto : <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>){</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    salida += <span class="stringliteral">&quot;\n  &quot;</span> + cuarto;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(salida);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &lt; 3 || entrada[2] != <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                salida = <span class="stringliteral">&quot;Invitaciones pendientes:&quot;</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">string</span> invitacion : invitaciones){</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    salida += <span class="stringliteral">&quot;\n  &quot;</span> + invitacion;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(salida);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;a&#39;</span>){</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">switch</span>(tipoSala){</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(<span class="stringliteral">&quot;Chat público&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;p&#39;</span>:</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(sala + <span class="stringliteral">&quot; (Chat privado)&quot;</span>);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(sala + <span class="stringliteral">&quot; (Sala)&quot;</span>);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;p&#39;</span>){</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                tipoSala = <span class="charliteral">&#39;p&#39;</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                sala = entrada.substr(3);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(sala + <span class="stringliteral">&quot; (Chat privado)&quot;</span>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                tipoSala = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                sala = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(<span class="stringliteral">&quot;Chat público&quot;</span>);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">string</span> cuarto : <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>){</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                    <span class="keywordflow">if</span>(cuarto == entrada.substr(3)){</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                        tipoSala = <span class="charliteral">&#39;s&#39;</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                        sala = cuarto;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                        interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(sala + <span class="stringliteral">&quot; (Sala)&quot;</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">string</span> invitacion : invitaciones){</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                    <span class="keywordflow">if</span>(invitacion == entrada.substr(3)){</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;JOIN_ROOM&quot;</span>);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                        mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a31ff1c6870ac8661e875de875a393517">JOINED_ROOM</a>;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                        informacion = entrada.substr(3);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                        mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, informacion);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                        <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No estás en la sala &quot;</span> + entrada.substr(3));</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No se especificó el nombre de la sala&quot;</span>);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;c&#39;</span>){</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;NEW_ROOM&quot;</span>);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, entrada.substr(3));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a0389f7fb81b56a6ce1541a33d4c94e84">NEW_ROOM</a>;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                informacion = entrada.substr(3);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No se especificó el nombre de la sala a crear&quot;</span>);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;i&#39;</span>){</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordflow">if</span>(tipoSala == <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;INVITE&quot;</span>);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, sala);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                    list&lt;string&gt; invitados;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                    <span class="keywordtype">string</span> invitado;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 3; i &lt; entrada.length(); i++){</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                        <span class="keywordflow">if</span>(entrada[i] == <span class="charliteral">&#39;,&#39;</span>){</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                            invitados.push_back(invitado);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                            invitado = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                            <span class="keywordflow">if</span>(entrada[i+1] == <span class="charliteral">&#39; &#39;</span>){</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                                i++;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                            }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                        }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                            invitado += entrada[i];</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                        }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    invitados.push_back(invitado);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                    mensaje.<a class="code" href="classMensaje.html#a4d8ba7f2663ba4499bcb472f804788e0">setLista</a>(<span class="stringliteral">&quot;usernames&quot;</span>, invitados);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                    <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No se especificaron los usuarios a invitar&quot;</span>);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;Debes estar en una sala para invitar a alguien&quot;</span>);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;j&#39;</span>){</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordflow">if</span>(invitaciones.empty()){</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No tienes invitaciones pendientes&quot;</span>);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;JOIN_ROOM&quot;</span>);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            mensajeEnEspera = <a class="code" href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a6d3f5998222a9381b95768ee044074ba">JOIN_ROOM</a>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                informacion = entrada.substr(3);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                informacion = invitaciones.back();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;Uniéndose a &quot;</span> + informacion + <span class="stringliteral">&quot;...&quot;</span>);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, informacion);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            invitaciones.remove(informacion);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;h&#39;</span>){</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordtype">string</span> ayuda = <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            ayuda.append(<span class="stringliteral">&quot;Si escribes un mensaje, se enviará a la sala actual\n&quot;</span>)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                .append(<span class="stringliteral">&quot;Los comandos disponibles son:\n&quot;</span>)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                .append(<span class="stringliteral">&quot;-p:    Cambia al chat público\n&quot;</span>)</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                .append(<span class="stringliteral">&quot;-p usuario:   Cambia al chat privado con el ususario especificado\n&quot;</span>)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                .append(<span class="stringliteral">&quot;-s sala:   Cambia a la sala especificada, si no estás en la sala pero si estás invitado, te unes a ella\n&quot;</span>)</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                .append(<span class="stringliteral">&quot;-u:    Muestra los usuarios conectados\n&quot;</span>)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                .append(<span class="stringliteral">&quot;-uu:   Si estás en una sala, muestra los usuarios en ésta\n&quot;</span>)</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                .append(<span class="stringliteral">&quot;-c nombre:   Crea una sala con el nombre indicado\n&quot;</span>)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                .append(<span class="stringliteral">&quot;-i usuario1, usuario2,...:   Invita a la sala actual a los usuarios indicados\n&quot;</span>)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                .append(<span class="stringliteral">&quot;-j:    Te unes a la última sala a la que te invitaron\n&quot;</span>)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                .append(<span class="stringliteral">&quot;-j sala:  Te unes a la sala especificada si estás invitado\n&quot;</span>)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                .append(<span class="stringliteral">&quot;-q:    Sales de la sala actual\n&quot;</span>)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                .append(<span class="stringliteral">&quot;-q sala:   Sales de la sala especificada\n&quot;</span>)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                .append(<span class="stringliteral">&quot;-ea:   Cambia el estado a ACTIVE\n&quot;</span>)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                .append(<span class="stringliteral">&quot;-ew:   Cambia el estado a AWAY\n&quot;</span>)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                .append(<span class="stringliteral">&quot;-eb:   Cambia el estado a BUSY\n&quot;</span>)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                .append(<span class="stringliteral">&quot;-v:    Muestra las salas a las que te uniste y tus invitaciones pendientes\n&quot;</span>)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                .append(<span class="stringliteral">&quot;-vs:   Muestra las salas a las que te uniste\n&quot;</span>)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                .append(<span class="stringliteral">&quot;-vi:   Muestra tus invitaciones pendientes\n&quot;</span>)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                .append(<span class="stringliteral">&quot;-a:    Muestra la sala actual\n&quot;</span>)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                .append(<span class="stringliteral">&quot;-d:    Desconectarse\n&quot;</span>)</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                .append(<span class="stringliteral">&quot;-h:    Muestra esta ayuda&quot;</span>);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(ayuda);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#aa918d381191100a84008a0e953b42407">quitaSala</a>();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;e&#39;</span>){</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 2){</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                <span class="keywordflow">switch</span>(entrada[2]){</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                    <span class="keywordflow">case</span> <span class="charliteral">&#39;a&#39;</span>:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                        mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;ACTIVE&quot;</span>);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                    <span class="keywordflow">case</span> <span class="charliteral">&#39;w&#39;</span>:</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                        mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;AWAY&quot;</span>);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                    <span class="keywordflow">case</span> <span class="charliteral">&#39;b&#39;</span>:</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                        mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;BUSY&quot;</span>);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No es un estado válido&quot;</span>);</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;STATUS&quot;</span>);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No se especificó el estado&quot;</span>);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;q&#39;</span>){</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="keywordflow">if</span>(entrada.length() &gt; 3){</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;LEAVE_ROOM&quot;</span>);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, entrada.substr(3));</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.remove(entrada.substr(3));</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                <span class="keywordflow">if</span>(sala == entrada.substr(3)){</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                    tipoSala = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                    sala = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                    interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(<span class="stringliteral">&quot;Chat público&quot;</span>);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">if</span>(tipoSala == <span class="charliteral">&#39;s&#39;</span>){</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;LEAVE_ROOM&quot;</span>);</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                mensaje.<a class="code" href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">setAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>, sala);</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                <a class="code" href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a>.remove(sala);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                tipoSala = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                sala = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                interfaz.<a class="code" href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">cambiaSala</a>(<span class="stringliteral">&quot;Chat público&quot;</span>);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;No se especificó la sala&quot;</span>);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        }</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">if</span>(entrada[1] == <span class="charliteral">&#39;d&#39;</span>){</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            mensaje.<a class="code" href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">setTipo</a>(<span class="stringliteral">&quot;DISCONNECT&quot;</span>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            desconectar();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">return</span> mensaje.<a class="code" href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">toString</a>();</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;Comando no reconocido.\nEscribe -h para mostrar la ayuda&quot;</span>);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    }</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno"><a class="line" href="classControlCliente.html#aa4123f343c8b0709bb9105865e7ae63a">  389</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#aa4123f343c8b0709bb9105865e7ae63a">publicMessageFrom</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">mensaje</a>(mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot;: &quot;</span> +</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>), <span class="stringliteral">&quot;Chat público&quot;</span>);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="classControlCliente.html#aaba8eb1093472ca63c9ddc62983ca24b">  394</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#aaba8eb1093472ca63c9ddc62983ca24b">messageFrom</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">mensaje</a>(<span class="stringliteral">&quot;&gt; &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>), </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot; (Chat privado)&quot;</span>);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno"><a class="line" href="classControlCliente.html#a5187b3109b8e62a6e0be4944746e37fb">  399</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a5187b3109b8e62a6e0be4944746e37fb">newUser</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) +  <span class="stringliteral">&quot; se ha conectado ---&quot;</span>);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno"><a class="line" href="classControlCliente.html#a0940683fbe582a2b884c92f5e1813a46">  403</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a0940683fbe582a2b884c92f5e1813a46">invitation</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        invitaciones.push_back(mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>));</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;+++++ &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>));</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="classControlCliente.html#acca0a4f92ba671a340324e9dc23f9e20">  408</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#acca0a4f92ba671a340324e9dc23f9e20">joinedRoom</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot; se ha unido a &quot;</span> +</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>) + <span class="stringliteral">&quot; ---&quot;</span>);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno"><a class="line" href="classControlCliente.html#a4fba1688cac41f767c61ef3aa2dd74e8">  413</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a4fba1688cac41f767c61ef3aa2dd74e8">roomMessageFrom</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">mensaje</a>(mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot;: &quot;</span> +</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;message&quot;</span>), </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>) + <span class="stringliteral">&quot; (Sala)&quot;</span>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    }</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
+<div class="line"><a name="l00419"></a><span class="lineno"><a class="line" href="classControlCliente.html#a3809f7cd2f1dad065c60444aa85603dd">  419</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a3809f7cd2f1dad065c60444aa85603dd">newStatus</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot; ahora está &quot;</span> +</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;status&quot;</span>) + <span class="stringliteral">&quot; ---&quot;</span>);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    }</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="line" href="classControlCliente.html#ab3dddb80dac10add8e02df28c1542aba">  424</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#ab3dddb80dac10add8e02df28c1542aba">userList</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        list&lt;string&gt; nombres = mensaje.<a class="code" href="classMensaje.html#aa766d6b7e919d1c2127ce545fb223b97">getLista</a>(<span class="stringliteral">&quot;usernames&quot;</span>);</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordtype">string</span> salida = <span class="stringliteral">&quot;Usuarios conectados: \n&quot;</span>;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">string</span> nombre : nombres){</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            salida += nombre + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        }</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(salida.substr(0, salida.length()-1));</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="classControlCliente.html#af2d706a395ae3558a7395d69ed8cd154">  433</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#af2d706a395ae3558a7395d69ed8cd154">roomUserList</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        list&lt;string&gt; nombres = mensaje.<a class="code" href="classMensaje.html#aa766d6b7e919d1c2127ce545fb223b97">getLista</a>(<span class="stringliteral">&quot;usernames&quot;</span>);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordtype">string</span> salida = <span class="stringliteral">&quot;Usuarios en la sala &quot;</span> + sala + <span class="stringliteral">&quot;:\n&quot;</span>;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">string</span> nombre : nombres){</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            salida += nombre + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(salida.substr(0, salida.length()-1));</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    }</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno"><a class="line" href="classControlCliente.html#ad8d3ebf3a8c8e0cb9427750fcac9e5fd">  442</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#ad8d3ebf3a8c8e0cb9427750fcac9e5fd">leftRoom</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot; ha dejado la sala &quot;</span> +</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                         mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;roomname&quot;</span>) + <span class="stringliteral">&quot; ---&quot;</span>);</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    }</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="line" href="classControlCliente.html#a90f7a32253a763fbd1aaf091bc478d3e">  447</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlCliente.html#a90f7a32253a763fbd1aaf091bc478d3e">disconnected</a>(<a class="code" href="classMensaje.html">Mensaje</a> mensaje){</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        interfaz.<a class="code" href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">imprime</a>(<span class="stringliteral">&quot;--- &quot;</span> + mensaje.<a class="code" href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">getAtributo</a>(<span class="stringliteral">&quot;username&quot;</span>) + <span class="stringliteral">&quot; se desconectó ---&quot;</span>);</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    }</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;};</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="ClasesCliente_8h.html#a2c2d050c0e2569638963d9dce25bcb9a">identifica</a>();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="ClasesCliente_8h.html#aee1c2c0c075a24d221c854456abff006">recibe</a>(<span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="ClasesCliente_8h.html#a7f6d814479b9f8b685813f805aa06a26">envia</a>(<span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ClasesCliente_8h.html#a77e58e0c1277b7e2f95da2917cffe96a">ejecutaMensaje</a>(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="ttc" id="aClasesCliente_8h_html_a2c2d050c0e2569638963d9dce25bcb9a"><div class="ttname"><a href="ClasesCliente_8h.html#a2c2d050c0e2569638963d9dce25bcb9a">identifica</a></div><div class="ttdeci">bool identifica()</div><div class="ttdef"><b>Definition:</b> Cliente.cpp:84</div></div>
+<div class="ttc" id="aClasesCliente_8h_html_a77e58e0c1277b7e2f95da2917cffe96a"><div class="ttname"><a href="ClasesCliente_8h.html#a77e58e0c1277b7e2f95da2917cffe96a">ejecutaMensaje</a></div><div class="ttdeci">void ejecutaMensaje(string)</div><div class="ttdef"><b>Definition:</b> Cliente.cpp:155</div></div>
+<div class="ttc" id="aClasesCliente_8h_html_a7f6d814479b9f8b685813f805aa06a26"><div class="ttname"><a href="ClasesCliente_8h.html#a7f6d814479b9f8b685813f805aa06a26">envia</a></div><div class="ttdeci">void * envia(void *)</div><div class="ttdef"><b>Definition:</b> Cliente.cpp:130</div></div>
+<div class="ttc" id="aClasesCliente_8h_html_aee1c2c0c075a24d221c854456abff006"><div class="ttname"><a href="ClasesCliente_8h.html#aee1c2c0c075a24d221c854456abff006">recibe</a></div><div class="ttdeci">void * recibe(void *)</div><div class="ttdef"><b>Definition:</b> Cliente.cpp:112</div></div>
+<div class="ttc" id="aMensaje_8cpp_html"><div class="ttname"><a href="Mensaje_8cpp.html">Mensaje.cpp</a></div></div>
+<div class="ttc" id="aServidor_8cpp_html_a7e121be0daf9469a35a7ad836b0555c7"><div class="ttname"><a href="Servidor_8cpp.html#a7e121be0daf9469a35a7ad836b0555c7">salas</a></div><div class="ttdeci">list&lt; Sala * &gt; salas</div><div class="ttdef"><b>Definition:</b> Servidor.cpp:18</div></div>
+<div class="ttc" id="aclassControlCliente_html"><div class="ttname"><a href="classControlCliente.html">ControlCliente</a></div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:58</div></div>
+<div class="ttc" id="aclassControlCliente_html_a048cc1061d659df38a4397e08198dace"><div class="ttname"><a href="classControlCliente.html#a048cc1061d659df38a4397e08198dace">ControlCliente::imprime</a></div><div class="ttdeci">void imprime(string s, bool saltoDeLinea)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:131</div></div>
+<div class="ttc" id="aclassControlCliente_html_a07a729b6a24e614a220426237c5cf49f"><div class="ttname"><a href="classControlCliente.html#a07a729b6a24e614a220426237c5cf49f">ControlCliente::lee</a></div><div class="ttdeci">string lee()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:138</div></div>
+<div class="ttc" id="aclassControlCliente_html_a0940683fbe582a2b884c92f5e1813a46"><div class="ttname"><a href="classControlCliente.html#a0940683fbe582a2b884c92f5e1813a46">ControlCliente::invitation</a></div><div class="ttdeci">void invitation(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:403</div></div>
+<div class="ttc" id="aclassControlCliente_html_a15f0c2bb53797a045af43af9467cb8d4"><div class="ttname"><a href="classControlCliente.html#a15f0c2bb53797a045af43af9467cb8d4">ControlCliente::info</a></div><div class="ttdeci">void info(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:95</div></div>
+<div class="ttc" id="aclassControlCliente_html_a3809f7cd2f1dad065c60444aa85603dd"><div class="ttname"><a href="classControlCliente.html#a3809f7cd2f1dad065c60444aa85603dd">ControlCliente::newStatus</a></div><div class="ttdeci">void newStatus(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:419</div></div>
+<div class="ttc" id="aclassControlCliente_html_a40210379947236da57c6a6a453162d7c"><div class="ttname"><a href="classControlCliente.html#a40210379947236da57c6a6a453162d7c">ControlCliente::escribeComando</a></div><div class="ttdeci">string escribeComando()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:143</div></div>
+<div class="ttc" id="aclassControlCliente_html_a402e071670c4a5fe30889d69ef184c1f"><div class="ttname"><a href="classControlCliente.html#a402e071670c4a5fe30889d69ef184c1f">ControlCliente::desconectar</a></div><div class="ttdeci">void desconectar()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:78</div></div>
+<div class="ttc" id="aclassControlCliente_html_a4fba1688cac41f767c61ef3aa2dd74e8"><div class="ttname"><a href="classControlCliente.html#a4fba1688cac41f767c61ef3aa2dd74e8">ControlCliente::roomMessageFrom</a></div><div class="ttdeci">void roomMessageFrom(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:413</div></div>
+<div class="ttc" id="aclassControlCliente_html_a5187b3109b8e62a6e0be4944746e37fb"><div class="ttname"><a href="classControlCliente.html#a5187b3109b8e62a6e0be4944746e37fb">ControlCliente::newUser</a></div><div class="ttdeci">void newUser(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:399</div></div>
+<div class="ttc" id="aclassControlCliente_html_a5daadc841b60dac87632f47dc8938e1c"><div class="ttname"><a href="classControlCliente.html#a5daadc841b60dac87632f47dc8938e1c">ControlCliente::conectar</a></div><div class="ttdeci">void conectar()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:88</div></div>
+<div class="ttc" id="aclassControlCliente_html_a66164c1ac02c7898db3c6123bd5663e0"><div class="ttname"><a href="classControlCliente.html#a66164c1ac02c7898db3c6123bd5663e0">ControlCliente::ponNombre</a></div><div class="ttdeci">string ponNombre()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:71</div></div>
+<div class="ttc" id="aclassControlCliente_html_a90f7a32253a763fbd1aaf091bc478d3e"><div class="ttname"><a href="classControlCliente.html#a90f7a32253a763fbd1aaf091bc478d3e">ControlCliente::disconnected</a></div><div class="ttdeci">void disconnected(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:447</div></div>
+<div class="ttc" id="aclassControlCliente_html_a94f921b95ea36b417db85579d0724e19"><div class="ttname"><a href="classControlCliente.html#a94f921b95ea36b417db85579d0724e19">ControlCliente::estaDesconectado</a></div><div class="ttdeci">bool estaDesconectado()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:91</div></div>
+<div class="ttc" id="aclassControlCliente_html_a9edc7d7dd72ce666e48f8aea0124fcf3"><div class="ttname"><a href="classControlCliente.html#a9edc7d7dd72ce666e48f8aea0124fcf3">ControlCliente::imprime</a></div><div class="ttdeci">void imprime(string s)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:134</div></div>
+<div class="ttc" id="aclassControlCliente_html_aa4123f343c8b0709bb9105865e7ae63a"><div class="ttname"><a href="classControlCliente.html#aa4123f343c8b0709bb9105865e7ae63a">ControlCliente::publicMessageFrom</a></div><div class="ttdeci">void publicMessageFrom(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:389</div></div>
+<div class="ttc" id="aclassControlCliente_html_aaba8eb1093472ca63c9ddc62983ca24b"><div class="ttname"><a href="classControlCliente.html#aaba8eb1093472ca63c9ddc62983ca24b">ControlCliente::messageFrom</a></div><div class="ttdeci">void messageFrom(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:394</div></div>
+<div class="ttc" id="aclassControlCliente_html_ab3dddb80dac10add8e02df28c1542aba"><div class="ttname"><a href="classControlCliente.html#ab3dddb80dac10add8e02df28c1542aba">ControlCliente::userList</a></div><div class="ttdeci">void userList(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:424</div></div>
+<div class="ttc" id="aclassControlCliente_html_acca0a4f92ba671a340324e9dc23f9e20"><div class="ttname"><a href="classControlCliente.html#acca0a4f92ba671a340324e9dc23f9e20">ControlCliente::joinedRoom</a></div><div class="ttdeci">void joinedRoom(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:408</div></div>
+<div class="ttc" id="aclassControlCliente_html_ad8d3ebf3a8c8e0cb9427750fcac9e5fd"><div class="ttname"><a href="classControlCliente.html#ad8d3ebf3a8c8e0cb9427750fcac9e5fd">ControlCliente::leftRoom</a></div><div class="ttdeci">void leftRoom(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:442</div></div>
+<div class="ttc" id="aclassControlCliente_html_aef195601a35801b85b82a06e9e130395"><div class="ttname"><a href="classControlCliente.html#aef195601a35801b85b82a06e9e130395">ControlCliente::warning</a></div><div class="ttdeci">void warning(Mensaje advertencia)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:125</div></div>
+<div class="ttc" id="aclassControlCliente_html_af2d706a395ae3558a7395d69ed8cd154"><div class="ttname"><a href="classControlCliente.html#af2d706a395ae3558a7395d69ed8cd154">ControlCliente::roomUserList</a></div><div class="ttdeci">void roomUserList(Mensaje mensaje)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:433</div></div>
+<div class="ttc" id="aclassInterfaz_html"><div class="ttname"><a href="classInterfaz.html">Interfaz</a></div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:8</div></div>
+<div class="ttc" id="aclassInterfaz_html_a244b2b6e446f4146a582deca60d6d46f"><div class="ttname"><a href="classInterfaz.html#a244b2b6e446f4146a582deca60d6d46f">Interfaz::imprime</a></div><div class="ttdeci">void imprime(string s, bool saltoDeLinea)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:26</div></div>
+<div class="ttc" id="aclassInterfaz_html_a2ffd73fd4e21c664617ab8273787497d"><div class="ttname"><a href="classInterfaz.html#a2ffd73fd4e21c664617ab8273787497d">Interfaz::lee</a></div><div class="ttdeci">string lee()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:22</div></div>
+<div class="ttc" id="aclassInterfaz_html_a4ee01f6b16260bf8aa3d063d0a87f9d7"><div class="ttname"><a href="classInterfaz.html#a4ee01f6b16260bf8aa3d063d0a87f9d7">Interfaz::mensaje</a></div><div class="ttdeci">void mensaje(string mensaje, string sala)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:37</div></div>
+<div class="ttc" id="aclassInterfaz_html_a7442050e31de14d59fd6f1347b160439"><div class="ttname"><a href="classInterfaz.html#a7442050e31de14d59fd6f1347b160439">Interfaz::cambiaSala</a></div><div class="ttdeci">void cambiaSala(string sala)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:45</div></div>
+<div class="ttc" id="aclassInterfaz_html_a7e0a275591f056686d2bedce877bbadc"><div class="ttname"><a href="classInterfaz.html#a7e0a275591f056686d2bedce877bbadc">Interfaz::imprime</a></div><div class="ttdeci">void imprime(string s)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:32</div></div>
+<div class="ttc" id="aclassInterfaz_html_aa918d381191100a84008a0e953b42407"><div class="ttname"><a href="classInterfaz.html#aa918d381191100a84008a0e953b42407">Interfaz::quitaSala</a></div><div class="ttdeci">void quitaSala()</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:50</div></div>
+<div class="ttc" id="aclassInterfaz_html_aead37bcb6dd6fb45672f02c6f3dfbc46"><div class="ttname"><a href="classInterfaz.html#aead37bcb6dd6fb45672f02c6f3dfbc46">Interfaz::lee</a></div><div class="ttdeci">string lee(bool primeraEntrada)</div><div class="ttdef"><b>Definition:</b> ClasesCliente.h:13</div></div>
+<div class="ttc" id="aclassMensaje_html"><div class="ttname"><a href="classMensaje.html">Mensaje</a></div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:10</div></div>
+<div class="ttc" id="aclassMensaje_html_a14f713fcace1028ca96ecb5707e3b6bd"><div class="ttname"><a href="classMensaje.html#a14f713fcace1028ca96ecb5707e3b6bd">Mensaje::toString</a></div><div class="ttdeci">string toString()</div><div class="ttdoc">Convierte el mensaje a un string.</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:92</div></div>
+<div class="ttc" id="aclassMensaje_html_a4d8ba7f2663ba4499bcb472f804788e0"><div class="ttname"><a href="classMensaje.html#a4d8ba7f2663ba4499bcb472f804788e0">Mensaje::setLista</a></div><div class="ttdeci">void setLista(string llave, list&lt; string &gt; lista)</div><div class="ttdoc">Agrega una lista al mensaje.</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:72</div></div>
+<div class="ttc" id="aclassMensaje_html_a8409979e1aad965bfe5f155a1dfe18d2"><div class="ttname"><a href="classMensaje.html#a8409979e1aad965bfe5f155a1dfe18d2">Mensaje::setTipo</a></div><div class="ttdeci">void setTipo(string tipo)</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:31</div></div>
+<div class="ttc" id="aclassMensaje_html_aa766d6b7e919d1c2127ce545fb223b97"><div class="ttname"><a href="classMensaje.html#aa766d6b7e919d1c2127ce545fb223b97">Mensaje::getLista</a></div><div class="ttdeci">list&lt; string &gt; getLista(string llave)</div><div class="ttdoc">Obtiene la lista de elementos de un atributo.</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:48</div></div>
+<div class="ttc" id="aclassMensaje_html_ac96e090b08c940e16dc1140bf6656589"><div class="ttname"><a href="classMensaje.html#ac96e090b08c940e16dc1140bf6656589">Mensaje::getAtributo</a></div><div class="ttdeci">string getAtributo(string llave)</div><div class="ttdoc">Obtiene un atributo del mensaje.</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:40</div></div>
+<div class="ttc" id="aclassMensaje_html_afdcb1ab02941e88f4f8e61f449c2b9c4"><div class="ttname"><a href="classMensaje.html#afdcb1ab02941e88f4f8e61f449c2b9c4">Mensaje::setAtributo</a></div><div class="ttdeci">void setAtributo(string llave, string valor)</div><div class="ttdoc">Agrega un atributo al mensaje.</div><div class="ttdef"><b>Definition:</b> Mensaje.cpp:63</div></div>
+<div class="ttc" id="atipos_8h_html"><div class="ttname"><a href="tipos_8h.html">tipos.h</a></div></div>
+<div class="ttc" id="atipos_8h_html_a030a181134e163cb2a9e98e83810bb54"><div class="ttname"><a href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54">tipo</a></div><div class="ttdeci">tipo</div><div class="ttdef"><b>Definition:</b> tipos.h:4</div></div>
+<div class="ttc" id="atipos_8h_html_a030a181134e163cb2a9e98e83810bb54a0389f7fb81b56a6ce1541a33d4c94e84"><div class="ttname"><a href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a0389f7fb81b56a6ce1541a33d4c94e84">NEW_ROOM</a></div><div class="ttdeci">@ NEW_ROOM</div><div class="ttdef"><b>Definition:</b> tipos.h:5</div></div>
+<div class="ttc" id="atipos_8h_html_a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea"><div class="ttname"><a href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a12e4db140cbafc3180345327305e4bea">NINGUNO</a></div><div class="ttdeci">@ NINGUNO</div><div class="ttdef"><b>Definition:</b> tipos.h:9</div></div>
+<div class="ttc" id="atipos_8h_html_a030a181134e163cb2a9e98e83810bb54a31ff1c6870ac8661e875de875a393517"><div class="ttname"><a href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a31ff1c6870ac8661e875de875a393517">JOINED_ROOM</a></div><div class="ttdeci">@ JOINED_ROOM</div><div class="ttdef"><b>Definition:</b> tipos.h:7</div></div>
+<div class="ttc" id="atipos_8h_html_a030a181134e163cb2a9e98e83810bb54a6d3f5998222a9381b95768ee044074ba"><div class="ttname"><a href="tipos_8h.html#a030a181134e163cb2a9e98e83810bb54a6d3f5998222a9381b95768ee044074ba">JOIN_ROOM</a></div><div class="ttdeci">@ JOIN_ROOM</div><div class="ttdef"><b>Definition:</b> tipos.h:5</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="ClasesCliente_8h.html">ClasesCliente.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

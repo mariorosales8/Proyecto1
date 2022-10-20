@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cambiasala_1',['cambiaSala',['../classInterfaz.html#a7442050e31de14d59fd6f1347b160439',1,'Interfaz']]],
-  ['catch_5fconfig_5fmain_2',['CATCH_CONFIG_MAIN',['../TestMensaje_8cpp.html#a656eb5868e824d59f489f910db438420',1,'TestMensaje.cpp']]],
+  ['catch_5fconfig_5fmain_2',['CATCH_CONFIG_MAIN',['../TestMensaje_8cpp.html#a656eb5868e824d59f489f910db438420',1,'CATCH_CONFIG_MAIN():&#160;TestMensaje.cpp'],['../TestSala_8cpp.html#a656eb5868e824d59f489f910db438420',1,'CATCH_CONFIG_MAIN():&#160;TestSala.cpp']]],
   ['clasescliente_2eh_3',['ClasesCliente.h',['../ClasesCliente_8h.html',1,'']]],
   ['clasesservidor_2eh_4',['ClasesServidor.h',['../ClasesServidor_8h.html',1,'']]],
   ['cliente_2ecpp_5',['Cliente.cpp',['../Cliente_8cpp.html',1,'']]],

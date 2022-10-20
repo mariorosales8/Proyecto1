@@ -1,0 +1,155 @@
+\hypertarget{ClasesServidor_8h}{}\doxysection{Referencia del Archivo Clases\+Servidor.\+h}
+\label{ClasesServidor_8h}\index{ClasesServidor.h@{ClasesServidor.h}}
+{\ttfamily \#include \char`\"{}Mensaje.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tipos.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSala}{Sala}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{ClasesServidor_8h_ab1089ceff18cc13e403558d24b73e886}{recibe}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{ClasesServidor_8h_aebb0bbf59e4b5380d2fb0fceaee0e3b2}{envia}} (map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$$>$)
+\item 
+void \mbox{\hyperlink{ClasesServidor_8h_ae3f6262b42718c3916a1681b68a1035d}{desconectar\+Socket}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$, string)
+\item 
+void \mbox{\hyperlink{ClasesServidor_8h_a7800a0090000f5763dbee2035ff2d92e}{recibe\+Identificacion}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a2e9df38235077841f406cd6ad266bb6b}{ejecuta\+Mensaje}} (string, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a69de37534daa92f94fa0029adb6c3099}{message}} (\mbox{\hyperlink{classMensaje}{Mensaje}} mensaje, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$cliente)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_afbb38a8d6ba58195a46a58541cbf76c0}{identifica}} (string, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a3261934c31a1913f901ca9e0ddd52c98}{public\+Message}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a04d755d2a59afefe0e6bbc9fffaf7552}{new\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a3a847f1504d151f8da360dbf1fc4205a}{invite}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a2e6c0227d0e194b1002ce819f1b04f94}{join\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a3c7165951a92c89b82c0f8a404f8f792}{room\+Message}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_ab324b6d77df0aada9c6fa0d1bb22c75b}{status}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_a828657754042f453e8c7ba50aa3b9383}{users}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_ac5568d2a5a684954704aab41cce2001a}{room\+Users}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_aa7c091af20c1de09251002428ee850eb}{leave\+Room}} (\mbox{\hyperlink{classMensaje}{Mensaje}}, \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\item 
+map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$ $>$ \mbox{\hyperlink{ClasesServidor_8h_aad5b4c3b3e7c42ab9cd4e70ba39a413b}{disconnect}} (\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{ClasesServidor_8h_ae3f6262b42718c3916a1681b68a1035d}\label{ClasesServidor_8h_ae3f6262b42718c3916a1681b68a1035d}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!desconectarSocket@{desconectarSocket}}
+\index{desconectarSocket@{desconectarSocket}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{desconectarSocket()}{desconectarSocket()}}
+{\footnotesize\ttfamily void desconectar\+Socket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente,  }\item[{string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_aad5b4c3b3e7c42ab9cd4e70ba39a413b}\label{ClasesServidor_8h_aad5b4c3b3e7c42ab9cd4e70ba39a413b}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ disconnect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a2e9df38235077841f406cd6ad266bb6b}\label{ClasesServidor_8h_a2e9df38235077841f406cd6ad266bb6b}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!ejecutaMensaje@{ejecutaMensaje}}
+\index{ejecutaMensaje@{ejecutaMensaje}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{ejecutaMensaje()}{ejecutaMensaje()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ ejecuta\+Mensaje (\begin{DoxyParamCaption}\item[{string}]{json,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_aebb0bbf59e4b5380d2fb0fceaee0e3b2}\label{ClasesServidor_8h_aebb0bbf59e4b5380d2fb0fceaee0e3b2}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!envia@{envia}}
+\index{envia@{envia}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{envia()}{envia()}}
+{\footnotesize\ttfamily void envia (\begin{DoxyParamCaption}\item[{map$<$ string, list$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ $>$$>$}]{envios }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_afbb38a8d6ba58195a46a58541cbf76c0}\label{ClasesServidor_8h_afbb38a8d6ba58195a46a58541cbf76c0}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!identifica@{identifica}}
+\index{identifica@{identifica}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{identifica()}{identifica()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ identifica (\begin{DoxyParamCaption}\item[{string}]{json,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a3a847f1504d151f8da360dbf1fc4205a}\label{ClasesServidor_8h_a3a847f1504d151f8da360dbf1fc4205a}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!invite@{invite}}
+\index{invite@{invite}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{invite()}{invite()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ invite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a2e6c0227d0e194b1002ce819f1b04f94}\label{ClasesServidor_8h_a2e6c0227d0e194b1002ce819f1b04f94}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!joinRoom@{joinRoom}}
+\index{joinRoom@{joinRoom}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{joinRoom()}{joinRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ join\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_aa7c091af20c1de09251002428ee850eb}\label{ClasesServidor_8h_aa7c091af20c1de09251002428ee850eb}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!leaveRoom@{leaveRoom}}
+\index{leaveRoom@{leaveRoom}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{leaveRoom()}{leaveRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ leave\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a69de37534daa92f94fa0029adb6c3099}\label{ClasesServidor_8h_a69de37534daa92f94fa0029adb6c3099}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!message@{message}}
+\index{message@{message}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a04d755d2a59afefe0e6bbc9fffaf7552}\label{ClasesServidor_8h_a04d755d2a59afefe0e6bbc9fffaf7552}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!newRoom@{newRoom}}
+\index{newRoom@{newRoom}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{newRoom()}{newRoom()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ new\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a3261934c31a1913f901ca9e0ddd52c98}\label{ClasesServidor_8h_a3261934c31a1913f901ca9e0ddd52c98}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!publicMessage@{publicMessage}}
+\index{publicMessage@{publicMessage}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{publicMessage()}{publicMessage()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ public\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_ab1089ceff18cc13e403558d24b73e886}\label{ClasesServidor_8h_ab1089ceff18cc13e403558d24b73e886}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!recibe@{recibe}}
+\index{recibe@{recibe}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{recibe()}{recibe()}}
+{\footnotesize\ttfamily void$\ast$ recibe (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a7800a0090000f5763dbee2035ff2d92e}\label{ClasesServidor_8h_a7800a0090000f5763dbee2035ff2d92e}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!recibeIdentificacion@{recibeIdentificacion}}
+\index{recibeIdentificacion@{recibeIdentificacion}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{recibeIdentificacion()}{recibeIdentificacion()}}
+{\footnotesize\ttfamily void recibe\+Identificacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a3c7165951a92c89b82c0f8a404f8f792}\label{ClasesServidor_8h_a3c7165951a92c89b82c0f8a404f8f792}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!roomMessage@{roomMessage}}
+\index{roomMessage@{roomMessage}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{roomMessage()}{roomMessage()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ room\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_ac5568d2a5a684954704aab41cce2001a}\label{ClasesServidor_8h_ac5568d2a5a684954704aab41cce2001a}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!roomUsers@{roomUsers}}
+\index{roomUsers@{roomUsers}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{roomUsers()}{roomUsers()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ room\+Users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_ab324b6d77df0aada9c6fa0d1bb22c75b}\label{ClasesServidor_8h_ab324b6d77df0aada9c6fa0d1bb22c75b}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!status@{status}}
+\index{status@{status}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensaje}{Mensaje}}}]{mensaje,  }\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClasesServidor_8h_a828657754042f453e8c7ba50aa3b9383}\label{ClasesServidor_8h_a828657754042f453e8c7ba50aa3b9383}} 
+\index{ClasesServidor.h@{ClasesServidor.h}!users@{users}}
+\index{users@{users}!ClasesServidor.h@{ClasesServidor.h}}
+\doxysubsubsection{\texorpdfstring{users()}{users()}}
+{\footnotesize\ttfamily map$<$string,list$<$\mbox{\hyperlink{classUsuario}{Usuario}}$\ast$$>$ $>$ users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
